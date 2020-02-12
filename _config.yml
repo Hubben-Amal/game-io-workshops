@@ -20,11 +20,15 @@ description: Game development workshops
 
 # List of links in the navigation bar
 navbar-links:
-  About Me: "aboutme"
-  Resources:
-    - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
-    - Learn markdown: "http://www.markdowntutorial.com/"
-  Author's home: "http://deanattali.com"
+  Schedule: "schedule"
+  Workshops:
+    - W1 - Basics: "workshops/w1/index"
+  Additional resources:
+    - Learning Javascript:
+    - Phaser documentation:
+    - Phaser quickstart:
+    - Setting up an IDE:
+  Author's home: "https://www.theodedeken.xyz"
 
 # Image to show in the navigation bar - image must be a square (width = height)
 # Remove this parameter if you don't want an image in the navbar
