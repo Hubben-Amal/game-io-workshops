@@ -2,14 +2,7 @@
 
 set -e
 
-gem install bundler
-echo '👍 ENTRYPOINT HAS STARTED—INSTALLING THE GEM BUNDLE'
-bundle install
-bundle list | grep "jekyll ("
-echo '👍 BUNDLE INSTALLED—BUILDING THE SITE'
-bundle exec jekyll build
-echo '👍 THE SITE IS BUILT—PUSHING IT BACK TO GITHUB-PAGES'
-cd build
+cd ${{ github.workspace }}/_site
 remote_repo="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" && \
 remote_branch="gh-pages" && \
 git init && \
