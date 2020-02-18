@@ -12,4 +12,4 @@ jobs:
     - name: jekyll-deploy-gh-pages
       env: 
         GITHUB_TOKEN: ${{ secrets.TOKEN }} 
-      uses: BryanSchuetz/jekyll-deploy-gh-pages@v2.0
+      uses: BryanSchuetz/jekyll-deploy-gh-pages@master
