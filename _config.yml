@@ -16,6 +16,8 @@ url: "hubben-amal.github.io"
 # baseurl should be an empty string
 baseurl: "/game-io-workshops"
 
+destination: ./build
+
 # --- Navigation bar options --- #
 
 # List of links in the navigation bar
