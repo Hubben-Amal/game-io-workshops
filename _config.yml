@@ -14,7 +14,7 @@ description: Game development workshops
 #url: "hubben-amal.github.io"
 
 # baseurl should be an empty string
-# baseurl: "/game-io-workshops"
+baseurl: "/game-io-workshops"
 
 # --- Navigation bar options --- #
 

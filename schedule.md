@@ -2,13 +2,20 @@
 layout: page
 title: Shedule
 ---
-Workshops take place at: 
 
-**Hubben Åmål** <br>
-**Kyrkogatan 11** <br>
-662 31, Åmål
 
-from **16:00 to 19:00**
+<div class="panel panel-default">
+  <div class="panel-body">
+    Workshops take place at: <br>
+    <div class="well">
+        <b>Hubben Åmål</b> <br>
+        <b>Kyrkogatan 11</b> <br>
+        662 31, Åmål <br>
+    </div>
+    from <b>16:00 to 19:00</b>
+  </div>
+</div>
+
 
 | Date          | Subject                 |
 | ------------- | ----------------------- |
