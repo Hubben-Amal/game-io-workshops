@@ -2,7 +2,7 @@
 
 set -e
 
-cd ${{ github.workspace }}/_site
+cd ${{ GITHUB_WORKSPACE }}/_site
 remote_repo="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" && \
 remote_branch="gh-pages" && \
 git init && \
