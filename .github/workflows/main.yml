@@ -8,5 +8,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Jekyll Action
-      uses: helaili/jekyll-action@1.0
+    - name: jekyll-deploy-gh-pages
+      uses: BryanSchuetz/jekyll-deploy-gh-pages@v2.0
