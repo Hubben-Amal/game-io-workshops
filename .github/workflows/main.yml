@@ -17,4 +17,4 @@ jobs:
     - name: deploy to gh-pages
       env: 
         GITHUB_TOKEN: ${{ secrets.TOKEN }} 
-      run: ./scripts/deploy.sh
+      run: sudo ./scripts/deploy.sh
