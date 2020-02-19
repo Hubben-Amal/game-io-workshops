@@ -3,7 +3,6 @@ layout: page
 title: Shedule
 ---
 
-
 <div class="panel panel-default">
   <div class="panel-body">
     Workshops take place at: <br>

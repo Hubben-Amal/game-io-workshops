@@ -1,0 +1,10 @@
+.reveal pre {
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    line-height: 1.42857143;
+    word-wrap: break-word;
+    background-color: #f5f5f5;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-left: 7px solid #444;
+}
