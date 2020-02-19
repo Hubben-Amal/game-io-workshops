@@ -42,6 +42,18 @@ snippet_4: |-
         console.log(i);
     }
     ```
+snippet_5: |-
+    ```javascript
+    // Function declaration
+    function multiply(num1, num2) {
+        let result = num1 * num2;
+        // This function returns a result
+        return result;
+    }
+
+    // Calling a function
+    multiply(2, 5);
+    ```
 ---
 
 <div class="reveal">
@@ -73,33 +85,45 @@ snippet_4: |-
 
         </section>
         <section>
-            <h4>When?</h4>
-            <table class="table">
-                <tr>
-                    <th>Date</th>
-                    <th>Subject</th>
-                </tr>
-                <tr>
-                    <td>20 February</td>
-                    <td>Basics</td>
-                </tr>
-                <tr>
-                    <td>12 March</td>
-                    <td>Phaser Systems</td>
-                </tr>
-                <tr>
-                    <td>2 April</td>
-                    <td>Pixel Art</td>
-                </tr>
-                <tr>
-                    <td>16 April</td>
-                    <td>Sound Effects and Music</td>
-                </tr>
-                <tr>
-                    <td>18-20 April</td>
-                    <td>Ludum Dare Game Jam</td>
-                </tr>
-            </table>
+            <section>
+                <h4>When?</h4>
+                <table class="table">
+                    <tr>
+                        <th>Date</th>
+                        <th>Subject</th>
+                    </tr>
+                    <tr>
+                        <td>20 February</td>
+                        <td>Basics</td>
+                    </tr>
+                    <tr>
+                        <td>12 March</td>
+                        <td>Phaser Systems</td>
+                    </tr>
+                    <tr>
+                        <td>2 April</td>
+                        <td>Pixel Art</td>
+                    </tr>
+                    <tr>
+                        <td>16 April</td>
+                        <td>Sound Effects and Music</td>
+                    </tr>
+                    <tr>
+                        <td>18-20 April</td>
+                        <td>Ludum Dare Game Jam</td>
+                    </tr>
+                </table>
+            </section>
+            <section>
+                <img height='150px' src='https://res.cloudinary.com/practicaldev/image/fetch/s--Mr-QsJkf--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/5viow2pa4e8fjn83ain4.png'>
+                <ul>
+                    <li>Global Game Jam</li>
+                    <li>Make a game in 48 hours</li>
+                    <li>Over 2000 participants</li>
+                    <li>18/04 - 03:00 -> 20/04 - 03:00</li>
+                    <li>Location, Internet, Electricity, Drinks, Snacks</li>
+                </ul>
+            </section>
         </section>
         <section>
             <section>
@@ -262,11 +286,29 @@ snippet_4: |-
             <section>
                 {{ page.snippet_4 | markdownify }}
             </section>
+            <section>
+                <h5>Can you predict the output of these loops?</h5>
+            </section>
+            <section>
+                <script async src="//jsfiddle.net/theodedeken/do2m5xuh/3/embed/js,result/"></script>
+            </section>
+            <section>
+                <script async src="//jsfiddle.net/theodedeken/1weazfLt/2/embed/js,result/"></script>
+            </section>
+            <section>
+                <script async src="//jsfiddle.net/theodedeken/7jy1h6ce/embed/js,result/"></script>
+            </section>
         </section>
         <section>
             <section>
                 <h4>Functions</h4>
             </section>
+            <section>
+                {{ page.snippet_5 | markdownify }}
+            </section>
+        </section>
+        <section>
+            <img src='https://www.explainxkcd.com/wiki/images/c/c6/code_quality.png' />
         </section>
         <section>
             <h3>Phaser Introduction</h3>
