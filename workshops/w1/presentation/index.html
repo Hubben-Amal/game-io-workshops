@@ -28,36 +28,7 @@
     <!-- Facebook OpenGraph tags -->
      
     <meta property="og:title" content="Game I/O" />  
-    <meta property="og:description" content="
-    
-        
-            Game I/O
-            
-            Game development workshops
-        
-        
-            What?
-            todo
-        
-        
-            Who?
-            todo
-        
-        
-            When?
-            todo
-        
-        
-            How?
-            
-            +
-            
-
-            todo
-        
-    
-
-"> 
+    <meta property="og:description" content="Game I/O Game development workshops What? Game development workshops Focusing on different aspects of game development Fully web-based Who? Theo Dedeken Master Computer Science Making games for 6 years Volunteer in the European Solidarity Corps When? Date Subject 20 February Basics 12 March Phaser Systems 2 April Pixel Art 16..."> 
 
 
     <meta content="website" property="og:type" /> 
@@ -71,36 +42,7 @@
     <meta content="@" name="twitter:site" />
     <meta content="@" name="twitter:creator" /> 
     <meta name="twitter:title" content="Game I/O" />  
-    <meta name="twitter:description" content="
-    
-        
-            Game I/O
-            
-            Game development workshops
-        
-        
-            What?
-            todo
-        
-        
-            Who?
-            todo
-        
-        
-            When?
-            todo
-        
-        
-            How?
-            
-            +
-            
-
-            todo
-        
-    
-
-">  
+    <meta name="twitter:description" content="Game I/O Game development workshops What? Game development workshops Focusing on different aspects of game development Fully web-based Who? Theo Dedeken Master Computer Science Making games for 6 years Volunteer in the European Solidarity Corps When? Date Subject 20 February Basics 12 March Phaser Systems 2 April Pixel Art 16...">  
     <meta name="twitter:image" content="hubben-amal.github.io/game-io-workshops/img/game-io-logo.png" />   
 
     <!-- Favicon -->
@@ -128,6 +70,7 @@
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/sky.min.css" id="theme" rel="stylesheet" />
 <script crossorigin="anonymous" integrity="sha256-fIsvyYkI1qQV1tu1PdlM4FF43kW76YCnCcl/xJCD3Fc=" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.8.0/marked.min.js"></script>
 <script crossorigin="anonymous" integrity="sha256-m08q2xO2R0aeibb2C0GfTjpky+ZgvfKWzNQbj/2zJaY=" src="https://cdnjs.cloudflare.com/ajax/libs/markdown.js/0.5.0/markdown.min.js"></script>
+<link rel="stylesheet" href="/game-io-workshops/css/additions.css"/>
 
 <body>
 
@@ -183,35 +126,267 @@
     <div class="slides">
         <section>
             <h3>Game I/O</h3>
-            <img width='200px' src='../../../img/game-io-logo.png'/>
+            <img src="/game-io-workshops/img/game-io-logo.png" width="200px"/>
             <h4>Game development workshops</h4>
         </section>
         <section>
             <h4>What?</h4>
-            <p>todo</p>
+            <p>
+                <ul>
+                    <li>Game development workshops</li>
+                    <li>Focusing on different aspects of game development</li>
+                    <li>Fully web-based</li>
+                </ul>
+            </p>
         </section>
         <section>
             <h4>Who?</h4>
-            <p>todo</p>
+            <img src="/game-io-workshops/img/theo.png" width="200px"/>
+            <ul>
+                <li>Theo Dedeken</li>
+                <li>Master Computer Science</li>
+                <li>Making games for 6 years</li>
+                <li>Volunteer in the European Solidarity Corps</li>
+            </ul>
+
         </section>
         <section>
             <h4>When?</h4>
-            <p>todo</p>
+            <table class="table">
+                <tr>
+                    <th>Date</th>
+                    <th>Subject</th>
+                </tr>
+                <tr>
+                    <td>20 February</td>
+                    <td>Basics</td>
+                </tr>
+                <tr>
+                    <td>12 March</td>
+                    <td>Phaser Systems</td>
+                </tr>
+                <tr>
+                    <td>2 April</td>
+                    <td>Pixel Art</td>
+                </tr>
+                <tr>
+                    <td>16 April</td>
+                    <td>Sound Effects and Music</td>
+                </tr>
+                <tr>
+                    <td>18-20 April</td>
+                    <td>Ludum Dare Game Jam</td>
+                </tr>
+            </table>
         </section>
         <section>
-            <h4>How?</h4>
-            <img width='150px' src='../../../img/js.png'/>
-            +
-            <img width='150px' src='../../../img/phaser.png'/>
+            <section>
+                <h4>How?</h4>
+                <img src="/game-io-workshops/img/js.png" width="150px"/>
+                +
+                <img src="/game-io-workshops/img/phaser.png" width="150px"/>
+            </section>
+            <section>
+                <h5>Javascript</h5>
+                <ul>
+                    <li>The (one and only) programming language for the web</li>
+                    <li>Easy to run, just need a browser</li>
+                    <li>Easy to learn</li>
+                </ul>
+            </section>
+            <section>
+                <h5>Phaser</h5>
+                <ul>
+                    <li>Game engine for the web</li>
+                    <li>Lightweight, mostly 2D support</li>
+                    <li>Graphics, Physics, Sounds, Input</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <h3>Javascript overview</h3>
+        </section>
+        <section>
+            <section>
+                <h4>Comments</h4>
+                <q>Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.</q>
+            </section>
+            <section>
+                <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Single line comment</span>
 
-            <p>todo</p>
+<span class="cm">/*
+Multiline
+comment
+*/</span>
+</code></pre></div></div>
+
+            </section>
+            <section>
+                <img src="/game-io-workshops/img/w1_comments.jpg"/>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h4>Variables</h4>
+                <img width='500px' src="/game-io-workshops/img/variable_box.png"/>
+            </section>
+            <section>
+                <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Declaring a variable</span>
+<span class="kd">let</span> <span class="nx">cardboardBox</span><span class="p">;</span>
+<span class="c1">// Assigning a value to a variable</span>
+<span class="nx">cardboardBox</span> <span class="o">=</span> <span class="s1">'cat'</span><span class="p">;</span>
+<span class="c1">// Declaring and assigning</span>
+<span class="kd">let</span> <span class="nx">answerToUniverseAndEverything</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+<span class="c1">// Using a variable</span>
+<span class="nx">cardboardBox</span><span class="p">;</span>
+</code></pre></div></div>
+
+            </section>
+            <section>
+                <h5>Naming variables</h5>
+                <ul>
+                    <li>Can be (almost) anything</li>
+                    <li>But be clear and consistent</li>
+                    <li>camelCase</li>
+                </ul>
+            </section>
+            <section>
+                <h5>Data types</h5>
+                <table style='font-size: 18pt'>
+                    <tr>
+                        <th>Data type</th>
+                        <th>Explanation</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td>String</td>
+                        <td>Text in quotation marks</td>
+                        <td><code>let workshopLeader = 'Theo'</code></td>
+                    </tr>
+                    <tr>
+                        <td>Number</td>
+                        <td>Any number</td>
+                        <td><code>let one = 1;</code><br><code>let pi = 3.14;</code></td>
+                    </tr>
+                    <tr>
+                        <td>Boolean</td>
+                        <td>True or False, <br>Yes or No, 1 or 0</td>
+                        <td><code>let awesome = true;</code></td>
+                    </tr>
+                    <tr>
+                        <td>Array</td>
+                        <td>A collection of data</td>
+                        <td><code>let dataTypes = ['string', 1, false];</code></td>
+                    </tr>
+                    <tr>
+                        <td>Object</td>
+                        <td>Everything else</td>
+                        <td><code>let game = new  Phaser.Game();</code></td>
+                    </tr>
+                </table>
+            </section>
+            <section>
+                <h5>Exercise</h5>
+                <script async src="//jsfiddle.net/theodedeken/cbd3t8Le/10/embed/js/"></script>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h4>Operators</h4>
+                <img src='https://media.giphy.com/media/DHqth0hVQoIzS/giphy.gif'/>
+            </section>
+            <section>
+                <table style='font-size: 16pt'>
+                    <tr>
+                        <th>Operator group</th>
+                        <th>Symbols</th>
+                        <th>Explanation</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td>Arithmetic</td>
+                        <td><code>+, -, *, /</code></td>
+                        <td>Calculations</td>
+                        <td><code>2 * 5 + 4;</code></td>
+                    </tr>
+                    <tr>
+                        <td>Comparison</td>
+                        <td><code>===, !==, <, >, <=, >= </code></td>
+                        <td>Comparing numbers and objects</td>
+                        <td><code>one < 2;</code></td>
+                    </tr>
+                    <tr>
+                        <td>Logical</td>
+                        <td><code>!, &&, ||</code></td>
+                        <td>not, and, or</td>
+                        <td><code>!true;</code></td>
+                    </tr>
+                    <tr>
+                        <td>Assignment</td>
+                        <td><code>=</code></td>
+                        <td>Assigning to a variable</td>
+                        <td><code>let answer = 5;</code></td>
+                    </tr>
+                </table>
+            </section>
+            <section>
+                <h5>True or False?</h5>
+                <p><code class='fragment'>!false</code>  <span class='fragment'>← True</span><p>
+                <p><code class='fragment'>4 < 3</code>  <span class='fragment'>← False</span><p>
+                <p><code class='fragment'>0 <= 0</code>  <span class='fragment'>← True</span><p>
+                <p><code class='fragment'>1 > 2 - 3 || false && 2 !== 'two'</code>  <span class='fragment'>← True</span><p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h4>Conditionals</h4>
+            </section>
+            <section>
+                <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">result</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// If the expression is true go in this codeblock</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s1">'The result is negative'</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">result</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// If statements can be chained</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s1">'The result is positive'</span><span class="p">);</span>    
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// If previous expressions are false, go to this codeblock</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s1">'The result is zero'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+            </section>
+            <section>
+                <img src="/game-io-workshops/img/w1_cond_meme.png"/>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h4>Loops</h4>
+                <img src='https://imgs.xkcd.com/comics/delicious.png' />
+            </section>
+            <section>
+                <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// A loop expression contains three parts</span>
+<span class="c1">// initialization; end condition; step action</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+            </section>
+        </section>
+        <section>
+            <section>
+                <h4>Functions</h4>
+            </section>
+        </section>
+        <section>
+            <h3>Phaser Introduction</h3>
         </section>
     </div>
 </div>
 <script>
-	Reveal.initialize({
-        history: true
-    });
+    Reveal.initialize({history: true});
 </script> <footer>
   <div class="container beautiful-jekyll-footer">
     <div class="row">
