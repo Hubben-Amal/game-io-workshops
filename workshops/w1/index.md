@@ -2,4 +2,8 @@
 layout: page
 title: Workshop 1 - Basics
 ---
-**Coming soon**
+## Presentation
+[Follow the presentation here!](presentation)
+
+## Exercise
+[Get started with the exercise here!](exercise/)
