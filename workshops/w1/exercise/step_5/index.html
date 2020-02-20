@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover" name="viewport">
 
     <title>
-         Workshop 1 - Basics 
+         Scoring points 
     </title>
 
     <meta name="author" content="Theo Dedeken" /> 
@@ -27,17 +27,13 @@
 
     <!-- Facebook OpenGraph tags -->
      
-    <meta property="og:title" content="Workshop 1 - Basics" />  
-    <meta property="og:description" content="## Presentation
-[Follow the presentation here!](presentation)
-
-## Exercise
-[Get started with the exercise here!](exercise/)"> 
+    <meta property="og:title" content="Scoring points" />  
+    <meta property="og:description" content="So now that we are bouncing we get to the actual purpose of the game: **Scoring points**. We score one point each time we jump over a pillar. One small problem though: we are standing still. ## Moving towards the pillar To move towards the pillar we will use a..."> 
 
 
     <meta content="website" property="og:type" /> 
-    <meta property="og:url" content="hubben-amal.github.io/game-io-workshops/workshops/w1/" />
-    <link rel="canonical" href="hubben-amal.github.io/game-io-workshops/workshops/w1/" />  
+    <meta property="og:url" content="hubben-amal.github.io/game-io-workshops/workshops/w1/exercise/step_5/" />
+    <link rel="canonical" href="hubben-amal.github.io/game-io-workshops/workshops/w1/exercise/step_5/" />  
     <meta property="og:image" content="hubben-amal.github.io/game-io-workshops/img/game-io-logo.png" /> 
 
 
@@ -45,12 +41,8 @@
     <meta content="summary" name="twitter:card" />
     <meta content="@" name="twitter:site" />
     <meta content="@" name="twitter:creator" /> 
-    <meta name="twitter:title" content="Workshop 1 - Basics" />  
-    <meta name="twitter:description" content="## Presentation
-[Follow the presentation here!](presentation)
-
-## Exercise
-[Get started with the exercise here!](exercise/)">  
+    <meta name="twitter:title" content="Scoring points" />  
+    <meta name="twitter:description" content="So now that we are bouncing we get to the actual purpose of the game: **Scoring points**. We score one point each time we jump over a pillar. One small problem though: we are standing still. ## Moving towards the pillar To move towards the pillar we will use a...">  
     <meta name="twitter:image" content="hubben-amal.github.io/game-io-workshops/img/game-io-logo.png" />   
 
     <!-- Favicon -->
@@ -141,7 +133,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-heading">
-          <h1>Workshop 1 - Basics</h1>
+          <h1>Scoring points</h1>
 		  
 		  
 		  
@@ -159,11 +151,97 @@
 <div class="container" role="main">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <h2 id="presentation">Presentation</h2>
-<p><a href="presentation">Follow the presentation here!</a></p>
+      <p>So now that we are bouncing we get to the actual purpose of the game: <strong>Scoring points</strong>.
+We score one point each time we jump over a pillar.
+One small problem though: we are standing still.</p>
 
-<h2 id="exercise">Exercise</h2>
-<p><a href="exercise/">Get started with the exercise here!</a></p>
+<h2 id="moving-towards-the-pillar">Moving towards the pillar</h2>
+<p>To move towards the pillar we will use a little trick and actually move the pillar towards us.
+We know how to change the position of a game object from the previous step.
+But there is actually a simpler way to do this if we are only moving in one direction namely <code class="highlighter-rouge">setX(x)</code>, so let’s use this to make the pillar come to us.
+Add this line to your <code class="highlighter-rouge">update</code> function.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">pillar</span><span class="p">.</span><span class="nx">setX</span><span class="p">(</span><span class="nx">pillar</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="mi">5</span><span class="p">);</span>
+</code></pre></div></div>
+<p>This will make the pillar move towards the ball with a reasonable speed (5 pixels per update or 300 pixels per second, feel free to experiment with this speed).</p>
+
+<h2 id="endless-pillars">Endless pillars</h2>
+
+<p>To make the series of pillars endless we will use another trick and just reuse the same pillar by moving it to the other side of the screen when we have jumped over it. 
+Also let’s use this to simultaneously add a point to our score</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Declare a variable to keep score</span>
+<span class="kd">let</span> <span class="nx">score</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">update</span><span class="p">()</span> <span class="p">{</span>     
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">jumping</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// we can only jump if space is down and isn't locked</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">space</span><span class="p">.</span><span class="nx">isDown</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">keylock</span><span class="p">){</span>
+            <span class="nx">jump</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="c1">// unlock space</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">space</span><span class="p">.</span><span class="nx">isUp</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">keylock</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="p">}</span>             
+    <span class="p">}</span> 
+
+    <span class="c1">// moving pillar towards the ball</span>
+    <span class="nx">pillar</span><span class="p">.</span><span class="nx">setX</span><span class="p">(</span><span class="nx">pillar</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="mi">5</span><span class="p">);</span>
+
+    <span class="c1">// the pillar is past the ball</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">pillar</span><span class="p">.</span><span class="nx">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="nx">scoreOnePoint</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">scoreOnePoint</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Moving the pillar to the other side of the screen</span>
+    <span class="nx">pillar</span><span class="p">.</span><span class="nx">setX</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+    <span class="c1">// Adding a point to the score</span>
+    <span class="nx">score</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="displaying-score">Displaying score</h2>
+<p>Now we are keeping score but we have no way of knowing what our score is while playing, let’s change that by displaying the score on the screen.</p>
+
+<p>Adding text to the screen in Phaser can be done by calling <code class="highlighter-rouge">this.add.text(x, y, text, textOptions)</code>.
+We can create this text object in the <code class="highlighter-rouge">create</code> function and update it each time we score a point.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// declaring the score variable</span>
+<span class="kd">let</span> <span class="nx">scoretext</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+
+<span class="kd">function</span> <span class="nx">create</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="c1">// displaying score</span>
+    <span class="nx">scoretext</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span>
+        <span class="mi">400</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="nx">score</span><span class="p">,</span> <span class="p">{</span> <span class="na">fontFamily</span><span class="p">:</span> <span class="s1">'"Arial"'</span> <span class="p">,</span> <span class="na">fontSize</span><span class="p">:</span> <span class="s2">"50pt"</span><span class="p">}</span>
+    <span class="p">);</span>
+<span class="p">}</span> 
+
+<span class="c1">// ...</span>
+
+<span class="kd">function</span> <span class="nx">scoreOnePoint</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Moving the pillar to the other side of the screen</span>
+    <span class="nx">pillar</span><span class="p">.</span><span class="nx">setX</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+    <span class="c1">// Adding a point to the score</span>
+    <span class="nx">score</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="c1">// update score text</span>
+    <span class="nx">scoretext</span><span class="p">.</span><span class="nx">text</span> <span class="o">=</span> <span class="nx">score</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul class="pager blog-pager">
+    <li class="previous">
+    <a href="/game-io-workshops/workshops/w1/exercise/step_4" data-toggle="tooltip" data-placement="top" title="Previous Step">&larr; Previous step</a>
+    </li>
+    <li class="next">
+        <a href="/game-io-workshops/workshops/w1/exercise/step_6" data-toggle="tooltip" data-placement="top" title="Next step">Next step &rarr;</a>
+    </li>
+</ul>
 
 	    
     </div>

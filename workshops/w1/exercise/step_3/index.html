@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover" name="viewport">
 
     <title>
-         Workshop 1 - Basics 
+         Creating game objects 
     </title>
 
     <meta name="author" content="Theo Dedeken" /> 
@@ -27,17 +27,13 @@
 
     <!-- Facebook OpenGraph tags -->
      
-    <meta property="og:title" content="Workshop 1 - Basics" />  
-    <meta property="og:description" content="## Presentation
-[Follow the presentation here!](presentation)
-
-## Exercise
-[Get started with the exercise here!](exercise/)"> 
+    <meta property="og:title" content="Creating game objects" />  
+    <meta property="og:description" content="Now that we have created our game it is time to add some objects to it. The game we will be making will be a ball jumping over a never ending series of pillars. ## Creating the bouncy ball To create the bouncy ball we will use the function `this.add.circle(x,..."> 
 
 
     <meta content="website" property="og:type" /> 
-    <meta property="og:url" content="hubben-amal.github.io/game-io-workshops/workshops/w1/" />
-    <link rel="canonical" href="hubben-amal.github.io/game-io-workshops/workshops/w1/" />  
+    <meta property="og:url" content="hubben-amal.github.io/game-io-workshops/workshops/w1/exercise/step_3/" />
+    <link rel="canonical" href="hubben-amal.github.io/game-io-workshops/workshops/w1/exercise/step_3/" />  
     <meta property="og:image" content="hubben-amal.github.io/game-io-workshops/img/game-io-logo.png" /> 
 
 
@@ -45,12 +41,8 @@
     <meta content="summary" name="twitter:card" />
     <meta content="@" name="twitter:site" />
     <meta content="@" name="twitter:creator" /> 
-    <meta name="twitter:title" content="Workshop 1 - Basics" />  
-    <meta name="twitter:description" content="## Presentation
-[Follow the presentation here!](presentation)
-
-## Exercise
-[Get started with the exercise here!](exercise/)">  
+    <meta name="twitter:title" content="Creating game objects" />  
+    <meta name="twitter:description" content="Now that we have created our game it is time to add some objects to it. The game we will be making will be a ball jumping over a never ending series of pillars. ## Creating the bouncy ball To create the bouncy ball we will use the function `this.add.circle(x,...">  
     <meta name="twitter:image" content="hubben-amal.github.io/game-io-workshops/img/game-io-logo.png" />   
 
     <!-- Favicon -->
@@ -141,7 +133,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-heading">
-          <h1>Workshop 1 - Basics</h1>
+          <h1>Creating game objects</h1>
 		  
 		  
 		  
@@ -159,11 +151,70 @@
 <div class="container" role="main">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <h2 id="presentation">Presentation</h2>
-<p><a href="presentation">Follow the presentation here!</a></p>
+      <p>Now that we have created our game it is time to add some objects to it. 
+The game we will be making will be a ball jumping over a never ending series of pillars.</p>
 
-<h2 id="exercise">Exercise</h2>
-<p><a href="exercise/">Get started with the exercise here!</a></p>
+<h2 id="creating-the-bouncy-ball">Creating the bouncy ball</h2>
+<p>To create the bouncy ball we will use the function <code class="highlighter-rouge">this.add.circle(x, y, radius, color)</code>.
+A function provided by the game engine to quickly create a circle at the specified coordinates with a certain radius and color.
+<strong>Keep in mind that the x and y coordinates specified will be used as the center of your circle.</strong></p>
+
+<h2 id="creating-the-ground-and-pillars">Creating the ground and pillars</h2>
+<p>For the ground and pillars we will use rectangles with the function <code class="highlighter-rouge">this.add.rectangle(x, y, width, height, color)</code>.
+<strong>Keep in mind that the x and y coordinates specified will be used as the center of your rectangle.</strong></p>
+
+<h2 id="the-create-function">The <code class="highlighter-rouge">create</code> function</h2>
+<p>Phaser has a specific function reserved for initialization code like this called <code class="highlighter-rouge">create</code>. 
+This function will be called at the beginning of the loading of the game and will only be executed once to create the necessary objects of your game.</p>
+
+<p>Putting this all together gives us this codeblock we will need to add to our existing code:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Declare our variables</span>
+<span class="kd">let</span> <span class="nx">ball</span><span class="p">,</span> <span class="nx">ground</span><span class="p">,</span> <span class="nx">pillar</span><span class="p">;</span>
+
+<span class="cm">/**
+* Create function
+* This function gets executed once and creates the game scene
+* 
+* Use this function to create and configure all your game elements 
+* in the scene
+*/</span>
+<span class="kd">function</span> <span class="nx">create</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Create and add the bouncy ball</span>
+    <span class="nx">ball</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">370</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mh">0x931f9c</span><span class="p">);</span>
+    <span class="c1">// Create and add the ground</span>
+    <span class="nx">ground</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">rectangle</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">420</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mh">0x38963c</span><span class="p">);</span>
+    <span class="c1">// Create and add the pillar where we will bounce over</span>
+    <span class="nx">pillar</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">rectangle</span><span class="p">(</span><span class="mi">700</span><span class="p">,</span> <span class="mi">340</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mh">0xff0000</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Running this will not give any results as Phaser does not yet know you want to call the <code class="highlighter-rouge">create</code> function.
+To link everything together we need to add something to our <code class="highlighter-rouge">config</code></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="c1">// Leave the rest of config untouched and add the </span>
+    <span class="c1">// lines under this message</span>
+
+    <span class="c1">// Linking script functions to the engine events</span>
+    <span class="na">scene</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">create</span><span class="p">:</span> <span class="nx">create</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>Now you should see a ball resting on top of the ground with a pillar in the distance.
+Feel free to experiment with colors, positions and sizes of the elements.</p>
+
+<ul class="pager blog-pager">
+    <li class="previous">
+    <a href="/game-io-workshops/workshops/w1/exercise/step_2" data-toggle="tooltip" data-placement="top" title="Previous Step">&larr; Previous step</a>
+    </li>
+    <li class="next">
+        <a href="/game-io-workshops/workshops/w1/exercise/step_4" data-toggle="tooltip" data-placement="top" title="Next step">Next step &rarr;</a>
+    </li>
+</ul>
 
 	    
     </div>

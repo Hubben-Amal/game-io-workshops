@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover" name="viewport">
 
     <title>
-         Workshop 1 - Basics 
+         Configuring the game 
     </title>
 
     <meta name="author" content="Theo Dedeken" /> 
@@ -27,17 +27,13 @@
 
     <!-- Facebook OpenGraph tags -->
      
-    <meta property="og:title" content="Workshop 1 - Basics" />  
-    <meta property="og:description" content="## Presentation
-[Follow the presentation here!](presentation)
-
-## Exercise
-[Get started with the exercise here!](exercise/)"> 
+    <meta property="og:title" content="Configuring the game" />  
+    <meta property="og:description" content="To create a new Phaser Game we call `new Phaser.game(config)` which creates our game scene and initializes all the necessary things in the background. As argument we give a configuration object (`config`) in which we can specify all the necessary details for our game. For our small example we use..."> 
 
 
     <meta content="website" property="og:type" /> 
-    <meta property="og:url" content="hubben-amal.github.io/game-io-workshops/workshops/w1/" />
-    <link rel="canonical" href="hubben-amal.github.io/game-io-workshops/workshops/w1/" />  
+    <meta property="og:url" content="hubben-amal.github.io/game-io-workshops/workshops/w1/exercise/step_2/" />
+    <link rel="canonical" href="hubben-amal.github.io/game-io-workshops/workshops/w1/exercise/step_2/" />  
     <meta property="og:image" content="hubben-amal.github.io/game-io-workshops/img/game-io-logo.png" /> 
 
 
@@ -45,12 +41,8 @@
     <meta content="summary" name="twitter:card" />
     <meta content="@" name="twitter:site" />
     <meta content="@" name="twitter:creator" /> 
-    <meta name="twitter:title" content="Workshop 1 - Basics" />  
-    <meta name="twitter:description" content="## Presentation
-[Follow the presentation here!](presentation)
-
-## Exercise
-[Get started with the exercise here!](exercise/)">  
+    <meta name="twitter:title" content="Configuring the game" />  
+    <meta name="twitter:description" content="To create a new Phaser Game we call `new Phaser.game(config)` which creates our game scene and initializes all the necessary things in the background. As argument we give a configuration object (`config`) in which we can specify all the necessary details for our game. For our small example we use...">  
     <meta name="twitter:image" content="hubben-amal.github.io/game-io-workshops/img/game-io-logo.png" />   
 
     <!-- Favicon -->
@@ -141,7 +133,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-heading">
-          <h1>Workshop 1 - Basics</h1>
+          <h1>Configuring the game</h1>
 		  
 		  
 		  
@@ -159,11 +151,40 @@
 <div class="container" role="main">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <h2 id="presentation">Presentation</h2>
-<p><a href="presentation">Follow the presentation here!</a></p>
+      <p>To create a new Phaser Game we call <code class="highlighter-rouge">new Phaser.game(config)</code> which creates our game scene and initializes all the necessary things in the background.
+As argument we give a configuration object (<code class="highlighter-rouge">config</code>) in which we can specify all the necessary details for our game. 
+For our small example we use this configuration:</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Configuration object for the game</span>
+ <span class="kd">let</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">type</span><span class="p">:</span> <span class="nx">Phaser</span><span class="p">.</span><span class="nx">AUTO</span><span class="p">,</span>
+    <span class="c1">// width of the game</span>
+    <span class="na">width</span><span class="p">:</span> <span class="mi">800</span><span class="p">,</span>
+    <span class="c1">// height of the game</span>
+    <span class="na">height</span><span class="p">:</span> <span class="mi">450</span><span class="p">,</span>
+    <span class="c1">// background color of the game</span>
+    <span class="na">backgroundColor</span><span class="p">:</span> <span class="mh">0x6dc4f2</span><span class="p">,</span>
+<span class="p">};</span>
 
-<h2 id="exercise">Exercise</h2>
-<p><a href="exercise/">Get started with the exercise here!</a></p>
+<span class="c1">// Create a new Phaser Game</span>
+<span class="kd">let</span> <span class="nx">game</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Phaser</span><span class="p">.</span><span class="nx">Game</span><span class="p">(</span><span class="nx">config</span><span class="p">);</span>
+</code></pre></div></div>
+<p>We specify the game width, height and background color.</p>
+<h2 id="background-color">Background color</h2>
+<p>Try changing the background color to another color you like.
+The color is specified in the hexadecimal format. 
+To get the know the hexadecimal value for a color you can use the <a href="https://www.google.com/search?q=color+picker" target="_blank">color picker</a> built into Google.
+Just copy over the HEX value and replace the <code class="highlighter-rouge">#</code> with <code class="highlighter-rouge">0x</code> so Javascript will interpret the value as hexadecimal.</p>
+
+<p>Copy the code over in your fiddle and when you run it you should see a box appear with the dimensions we specified and with the background color you set.</p>
+
+<ul class="pager blog-pager">
+    <li class="previous">
+    <a href="/game-io-workshops/workshops/w1/exercise/step_1" data-toggle="tooltip" data-placement="top" title="Previous Step">&larr; Previous step</a>
+    </li>
+    <li class="next">
+        <a href="/game-io-workshops/workshops/w1/exercise/step_3" data-toggle="tooltip" data-placement="top" title="Next step">Next step &rarr;</a>
+    </li>
+</ul>
 
 	    
     </div>

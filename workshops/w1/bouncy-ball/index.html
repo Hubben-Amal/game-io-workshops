@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
+</head>
+
+<body>
+
+    <script>
+    // Configuration for the game
+    // Other options that can be set in this config:
+    // https://photonstorm.github.io/phaser3-docs/Phaser.Core.Config.html
+    let config = {
+        type: Phaser.AUTO,
+        // width of the game
+        width: 800,
+        // height fo the game
+        height: 450,
+        // background color of the game
+        backgroundColor: 0x6dc4f2,
+        // function names for the default engine events
+        scene: {
+            create: create,
+            update: update,
+        }
+    };
+
+    // Create a new Phaser Game
+    let game = new Phaser.Game(config);
+    let space, ball, ground, pillar, scoretext;
+    let jumping = false;
+    let keylock = false;
+    let playing = false;
+
+    let score = 0;
+
+    /**
+     * Create function
+     * This function gets executed once after the preload and creates the game scene
+     * 
+     * Use this function to create and configure all your game elements in the scene
+     */
+    function create() {
+        ball = this.add.circle(100, 370, 20, 0x931f9c);
+
+        ground = this.add.rectangle(400, 420, 800, 60, 0x38963c);
+
+        pillar = this.add.rectangle(1000, 340, 50, 100, 0xff0000);
+
+        space = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        
+        scoretext = this.add.text(400, 50, score, { fontFamily: '"Arial"' , fontSize: "50pt"});
+
+        infotext = this.add.text(50, 400, 'Press space to start game', { fontFamily: '"Arial"', fontSize: "20pt"})
+    }
+
+    /**
+     * Main update loop
+     * The code in this function gets executed on every game update (default 60 times per second)
+     *
+     * Use this function for all elements that change overtime
+     */
+    function update() {
+        if (playing){            
+            if (!jumping) {
+                if (space.isDown && !keylock){
+                    jump();
+                }
+                else if (space.isUp) {
+                    keylock = false;
+                }             
+            } 
+            if (pillar.x == 100 && ball.y == 370){
+                gameover();
+            }
+
+            pillar.setX(pillar.x - 5);
+
+            if (pillar.x < 0){
+                scoreOnePoint();
+            }
+        }
+        else{
+            if (space.isDown){
+                playing = true;
+                infotext.visible = false;
+            }
+        }
+    }
+
+    function jump() {
+        ball.setPosition(100, 250);
+        jumping = true;
+        keylock = true
+        setTimeout(dropDown, 500);
+    }
+
+    function dropDown() {
+        ball.setPosition(100, 370);
+        jumping = false;
+        if (space.isUp) {
+            keylock = false;
+        }
+    }
+
+    function scoreOnePoint() {
+        pillar.setX(1000);
+        score += 1;
+        scoretext.text = score
+    }
+
+    function gameover() {
+        playing = false;
+        infotext.text = 'Final score ' + score + ', press space to start a new game'
+        infotext.visible = true
+        resetGame();
+    }
+
+    function resetGame() {
+        score = 0;
+        scoretext.text = score;
+        pillar.setPosition(1000, 340);
+    }
+</script>
+
+</body>
+
+</html>
