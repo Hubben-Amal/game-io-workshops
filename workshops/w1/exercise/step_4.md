@@ -92,7 +92,7 @@ function jump() {
     setTimeout(dropDown, 500);
 }
 
-function dropdown() {
+function dropDown() {
     // reset the position of the ball
     ball.setPosition(ball.x, ball.y + 150);
     // after dropping down we can jump again
