@@ -22,7 +22,7 @@ layout: game
 
     // Create a new Phaser Game
     let game = new Phaser.Game(config);
-    let spaceKey, ball, ground, pillar, scoretext;
+    let space, ball, ground, pillar, scoretext;
     let jumping = false;
     let keylock = false;
     let playing = false;
@@ -42,7 +42,7 @@ layout: game
 
         pillar = this.add.rectangle(1000, 340, 50, 100, 0xff0000);
 
-        spaceKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        space = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         
         scoretext = this.add.text(400, 50, score, { fontFamily: '"Arial"' , fontSize: "50pt"});
 
@@ -56,7 +56,15 @@ layout: game
      * Use this function for all elements that change overtime
      */
     function update() {
-        if (playing){
+        if (playing){            
+            if (!jumping) {
+                if (space.isDown && !keylock){
+                    jump();
+                }
+                else if (space.isUp) {
+                    keylock = false;
+                }             
+            } 
             if (pillar.x == 100 && ball.y == 370){
                 gameover();
             }
@@ -64,37 +72,36 @@ layout: game
             pillar.setX(pillar.x - 5);
 
             if (pillar.x < 0){
-                pillar.setX(1000);
-                score += 1;
-                scoretext.text = score
+                scoreOnePoint();
             }
-            
-            if (!jumping) {
-                if (spaceKey.isDown && !keylock){
-                    ball.setPosition(100, 250);
-                    jumping = true;
-                    keylock = true
-                    setTimeout(dropDown, 500);
-                }
-                else if (spaceKey.isUp) {
-                    keylock = false;
-                }             
-            } 
         }
         else{
-            if (spaceKey.isDown){
+            if (space.isDown){
                 playing = true;
                 infotext.visible = false;
             }
         }
     }
 
+    function jump() {
+        ball.setPosition(100, 250);
+        jumping = true;
+        keylock = true
+        setTimeout(dropDown, 500);
+    }
+
     function dropDown() {
         ball.setPosition(100, 370);
         jumping = false;
-        if (spaceKey.isUp) {
+        if (space.isUp) {
             keylock = false;
         }
+    }
+
+    function scoreOnePoint() {
+        pillar.setX(1000);
+        score += 1;
+        scoretext.text = score
     }
 
     function gameover() {
