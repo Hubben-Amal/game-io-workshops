@@ -1,6 +1,8 @@
 ---
-layout: page
+layout: exercise
 title: Bouncing
+next: workshops/w1/exercise/step_5
+previous: workshops/w1/exercise/step_3
 ---
 
 We have all our elements on the screen but not much is happening yet.
@@ -137,12 +139,3 @@ function jump() {
 ```
 
 Feel free to experiment with jump height and airtime by changing the values.
-
-<ul class="pager blog-pager">
-    <li class="previous">
-    <a href="{{ "workshops/w1/exercise/step_3" | relative_url }}" data-toggle="tooltip" data-placement="top" title="Previous Step">&larr; Previous step</a>
-    </li>
-    <li class="next">
-        <a href="{{ "workshops/w1/exercise/step_5" | relative_url }}" data-toggle="tooltip" data-placement="top" title="Next step">Next step &rarr;</a>
-    </li>
-</ul>

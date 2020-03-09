@@ -1,6 +1,8 @@
 ---
-layout: page
+layout: exercise
 title: Scoring points
+next: workshops/w1/exercise/step_6
+previous: workshops/w1/exercise/step_4
 ---
 
 So now that we are bouncing we get to the actual purpose of the game: **Scoring points**.
@@ -88,13 +90,3 @@ function scoreOnePoint() {
     scoretext.text = score;
 }
 ```
-
-
-<ul class="pager blog-pager">
-    <li class="previous">
-    <a href="{{ "workshops/w1/exercise/step_4" | relative_url }}" data-toggle="tooltip" data-placement="top" title="Previous Step">&larr; Previous step</a>
-    </li>
-    <li class="next">
-        <a href="{{ "workshops/w1/exercise/step_6" | relative_url }}" data-toggle="tooltip" data-placement="top" title="Next step">Next step &rarr;</a>
-    </li>
-</ul>

@@ -1,6 +1,8 @@
 ---
-layout: page
+layout: exercise
 title: Setup
+next: workshops/w1/exercise/step_2
+previous: workshops/w1/exercise
 ---
 
 To edit and run Javascript code in the browser we will use a service called [JsFiddle](https://jsfiddle.net/).
@@ -12,9 +14,3 @@ In the toolbar at the top you can see the buttons to run your code and to save (
 <a href="https://jsfiddle.net/theodedeken/01qtvpb6/5/" target='_blank'>Click here to get started</a>
 
 Then you can go through to the next step.
-
-<ul class="pager blog-pager">
-    <li class="next">
-        <a href="{{ "workshops/w1/exercise/step_2" | relative_url }}" data-toggle="tooltip" data-placement="top" title="Next step">Next step &rarr;</a>
-    </li>
-</ul>

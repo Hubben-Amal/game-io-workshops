@@ -1,6 +1,8 @@
 ---
-layout: page
+layout: exercise
 title: Configuring the game
+next: workshops/w1/exercise/step_3
+previous: workshops/w1/exercise/step_1
 ---
 
 To create a new Phaser Game we call `new Phaser.game(config)` which creates our game scene and initializes all the necessary things in the background.
@@ -29,12 +31,3 @@ To get the know the hexadecimal value for a color you can use the <a href="https
 Just copy over the HEX value and replace the `#` with `0x` so Javascript will interpret the value as hexadecimal.  
 
 Copy the code over in your fiddle and when you run it you should see a box appear with the dimensions we specified and with the background color you set.
-
-<ul class="pager blog-pager">
-    <li class="previous">
-    <a href="{{ "workshops/w1/exercise/step_1" | relative_url }}" data-toggle="tooltip" data-placement="top" title="Previous Step">&larr; Previous step</a>
-    </li>
-    <li class="next">
-        <a href="{{ "workshops/w1/exercise/step_3" | relative_url }}" data-toggle="tooltip" data-placement="top" title="Next step">Next step &rarr;</a>
-    </li>
-</ul>

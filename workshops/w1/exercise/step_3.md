@@ -1,6 +1,8 @@
 ---
-layout: page
+layout: exercise
 title: Creating game objects
+next: workshops/w1/exercise/step_4
+previous: workshops/w1/exercise/step_2
 ---
 
 Now that we have created our game it is time to add some objects to it. 
@@ -60,12 +62,3 @@ let config = {
 
 Now you should see a ball resting on top of the ground with a pillar in the distance.
 Feel free to experiment with colors, positions and sizes of the elements.
-
-<ul class="pager blog-pager">
-    <li class="previous">
-    <a href="{{ "workshops/w1/exercise/step_2" | relative_url }}" data-toggle="tooltip" data-placement="top" title="Previous Step">&larr; Previous step</a>
-    </li>
-    <li class="next">
-        <a href="{{ "workshops/w1/exercise/step_4" | relative_url }}" data-toggle="tooltip" data-placement="top" title="Next step">Next step &rarr;</a>
-    </li>
-</ul>

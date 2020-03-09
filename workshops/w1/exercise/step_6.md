@@ -1,6 +1,8 @@
 ---
-layout: page
+layout: exercise
 title: Game Over
+next: workshops/w1/exercise/step_7
+previous: workshops/w1/exercise/step_5
 ---
 
 The final piece of the puzzle is to actually check whether the ball touches the pillar to see if the game should be over.
@@ -102,12 +104,3 @@ function resetGame() {
 ``` 
 
 That should be it to get our basic game working.
-
-<ul class="pager blog-pager">
-    <li class="previous">
-    <a href="{{ "workshops/w1/exercise/step_5" | relative_url }}" data-toggle="tooltip" data-placement="top" title="Previous Step">&larr; Previous step</a>
-    </li>
-    <li class="next">
-        <a href="{{ "workshops/w1/exercise/step_7" | relative_url }}" data-toggle="tooltip" data-placement="top" title="Next step">Next step &rarr;</a>
-    </li>
-</ul>
