@@ -21,7 +21,32 @@ common-js:
 
 <body>
 
-    {% include gtm_body.html %} {% include nav.html %} {{ content }} {% include footer.html %} {% include footer-scripts.html %}
+    {% include gtm_body.html %} 
+    {% include nav.html %} 
+    <div class="reveal">
+      <div class="slides">
+        {% for section in page.sections %}
+          <section>
+          {% if section.sections %}
+            {% for subsection in section.sections %}
+              <section>
+                {{ subsection | markdownify }}
+              </section>
+            {% endfor %}
+          {% else %}
+            {{ section | markdownify }}
+          {% endif %}
+          </section>
+        {% endfor %}
+      </div>
+    </div>
+
+    <script>
+      Reveal.initialize({history: true});
+    </script>
+    
+    {% include footer.html %} 
+    {% include footer-scripts.html %}
 
 </body>
 
