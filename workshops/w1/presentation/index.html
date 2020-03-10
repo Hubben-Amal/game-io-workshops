@@ -28,7 +28,7 @@
     <!-- Facebook OpenGraph tags -->
      
     <meta property="og:title" content="Game I/O" />  
-    <meta property="og:description" content="Game I/O Game development workshops What? Game development workshops Focusing on different aspects of game development Fully web-based Who? Theo Dedeken Master Computer Science Making games for 6 years Volunteer in the European Solidarity Corps When? Date Subject 20 February Basics 12 March Phaser Systems 2 April Pixel Art 16..."> 
+    <meta property="og:description" content=""> 
 
 
     <meta content="website" property="og:type" /> 
@@ -42,7 +42,7 @@
     <meta content="@" name="twitter:site" />
     <meta content="@" name="twitter:creator" /> 
     <meta name="twitter:title" content="Game I/O" />  
-    <meta name="twitter:description" content="Game I/O Game development workshops What? Game development workshops Focusing on different aspects of game development Fully web-based Who? Theo Dedeken Master Computer Science Making games for 6 years Volunteer in the European Solidarity Corps When? Date Subject 20 February Basics 12 March Phaser Systems 2 April Pixel Art 16...">  
+    <meta name="twitter:description" content="">  
     <meta name="twitter:image" content="hubben-amal.github.io/game-io-workshops/img/game-io-logo.png" />   
 
     <!-- Favicon -->
@@ -75,7 +75,8 @@
 <body>
 
     
- <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+ 
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
     <div class="container-fluid">
         <div class="navbar-header">
             <button class="navbar-toggle" data-target="#main-navbar" data-toggle="collapse" type="button">
@@ -94,6 +95,7 @@
                     <a class="navlinks-parent" href="javascript:void(0)">Workshops</a>
                     <div class="navlinks-children">
                         <a href="/game-io-workshops/workshops/w1/index">W1 - Basics</a>
+                        <a href="/game-io-workshops/workshops/w2/index">W2 - Phaser Systems</a>
                     </div>
                 </li>
                 
@@ -122,108 +124,145 @@
         
 
     </div>
-</nav> <div class="reveal">
-    <div class="slides">
-        <section>
-            <h3>Game I/O</h3>
-            <img src="/game-io-workshops/img/game-io-logo.png" width="200px"/>
-            <h4>Game development workshops</h4>
-        </section>
-        <section>
-            <h4>What?</h4>
-            <p>
-                <ul>
-                    <li>Game development workshops</li>
-                    <li>Focusing on different aspects of game development</li>
-                    <li>Fully web-based</li>
-                </ul>
-            </p>
-        </section>
-        <section>
-            <h4>Who?</h4>
-            <img src="/game-io-workshops/img/theo.png" width="200px"/>
-            <ul>
-                <li>Theo Dedeken</li>
-                <li>Master Computer Science</li>
-                <li>Making games for 6 years</li>
-                <li>Volunteer in the European Solidarity Corps</li>
-            </ul>
+</nav> 
+    <div class="reveal">
+      <div class="slides">
+        
+          <section>
+          
+            <h3 id="game-io">Game I/O</h3>
+<p><img src="/game-io-workshops/img/game-io-logo.png" width="200px" /></p>
+<h4 id="game-development-workshops">Game development workshops</h4>
 
-        </section>
-        <section>
-            <section>
-                <h4>When?</h4>
-                <table class="table">
-                    <tr>
-                        <th>Date</th>
-                        <th>Subject</th>
-                    </tr>
-                    <tr>
-                        <td>20 February</td>
-                        <td>Basics</td>
-                    </tr>
-                    <tr>
-                        <td>12 March</td>
-                        <td>Phaser Systems</td>
-                    </tr>
-                    <tr>
-                        <td>2 April</td>
-                        <td>Pixel Art</td>
-                    </tr>
-                    <tr>
-                        <td>16 April</td>
-                        <td>Sound Effects and Music</td>
-                    </tr>
-                    <tr>
-                        <td>18-20 April</td>
-                        <td>Ludum Dare Game Jam</td>
-                    </tr>
-                </table>
-            </section>
-            <section>
-                <img height='150px' src='https://res.cloudinary.com/practicaldev/image/fetch/s--Mr-QsJkf--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/5viow2pa4e8fjn83ain4.png'>
-                <ul>
-                    <li>Global Game Jam</li>
-                    <li>Make a game in 48 hours</li>
-                    <li>Over 2000 participants</li>
-                    <li>18/04 - 03:00 -> 20/04 - 03:00</li>
-                    <li>Location, Internet, Electricity, Drinks, Snacks</li>
-                </ul>
-            </section>
-        </section>
-        <section>
-            <section>
-                <h4>How?</h4>
-                <img src="/game-io-workshops/img/js.png" width="150px"/>
-                +
-                <img src="/game-io-workshops/img/phaser.png" width="150px"/>
-            </section>
-            <section>
-                <h5>Javascript</h5>
-                <ul>
-                    <li>The (one and only) programming language for the web</li>
-                    <li>Easy to run, just need a browser</li>
-                    <li>Easy to learn</li>
-                </ul>
-            </section>
-            <section>
-                <h5>Phaser</h5>
-                <ul>
-                    <li>Game engine for the web</li>
-                    <li>Lightweight, mostly 2D support</li>
-                    <li>Graphics, Physics, Sounds, Input</li>
-                </ul>
-            </section>
-        </section>
-        <section>
-            <h3>Javascript overview</h3>
-        </section>
-        <section>
-            <section>
-                <h4>Comments</h4>
-                <q>Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.</q>
-            </section>
-            <section>
+          
+          </section>
+        
+          <section>
+          
+            <h4 id="what">What?</h4>
+<ul>
+  <li>Game development workshops</li>
+  <li>Focusing on different aspects of game development</li>
+  <li>Fully web-based</li>
+</ul>
+
+          
+          </section>
+        
+          <section>
+          
+            <h4 id="who">Who?</h4>
+<p><img src="/game-io-workshops/img/theo.png" width="200px" /></p>
+<ul>
+  <li>Theo Dedeken</li>
+  <li>Master Computer Science</li>
+  <li>Making games for 6 years</li>
+  <li>Volunteer in the European Solidarity Corps</li>
+</ul>
+
+          
+          </section>
+        
+          <section>
+          
+            
+              <section>
+                <h4 id="when">When?</h4>
+<table class="table">
+    <tr>
+        <th>Date</th>
+        <th>Subject</th>
+    </tr>
+    <tr>
+        <td>20 February</td>
+        <td>Basics</td>
+    </tr>
+    <tr>
+        <td>12 March</td>
+        <td>Phaser Systems</td>
+    </tr>
+    <tr>
+        <td>2 April</td>
+        <td>Pixel Art</td>
+    </tr>
+    <tr>
+        <td>16 April</td>
+        <td>Sound Effects and Music</td>
+    </tr>
+    <tr>
+        <td>18-20 April</td>
+        <td>Ludum Dare Game Jam</td>
+    </tr>
+</table>
+
+              </section>
+            
+              <section>
+                <p><img height="150px" src="https://res.cloudinary.com/practicaldev/image/fetch/s--Mr-QsJkf--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/5viow2pa4e8fjn83ain4.png" /></p>
+<ul>
+  <li>Global Game Jam</li>
+  <li>Make a game in 48 hours</li>
+  <li>Over 2000 participants</li>
+  <li>18/04 - 03:00 -&gt; 20/04 - 03:00</li>
+  <li>Location, Internet, Electricity, Drinks, Snacks</li>
+</ul>
+
+              </section>
+            
+          
+          </section>
+        
+          <section>
+          
+            
+              <section>
+                <h4 id="how">How?</h4>
+<p><img src="/game-io-workshops/img/js.png" width="150px" />
++
+<img src="/game-io-workshops/img/phaser.png" width="150px" /></p>
+
+              </section>
+            
+              <section>
+                <h5 id="javascript">Javascript</h5>
+<ul>
+  <li>The (one and only) programming language for the web</li>
+  <li>Easy to run, just need a browser</li>
+  <li>Easy to learn</li>
+</ul>
+
+              </section>
+            
+              <section>
+                <h5 id="phaser">Phaser</h5>
+<ul>
+  <li>Game engine for the web</li>
+  <li>Lightweight, mostly 2D support</li>
+  <li>Graphics, Physics, Sounds, Input</li>
+</ul>
+
+              </section>
+            
+          
+          </section>
+        
+          <section>
+          
+            <h3 id="javascript-overview">Javascript overview</h3>
+
+          
+          </section>
+        
+          <section>
+          
+            
+              <section>
+                <h4 id="comments">Comments</h4>
+<p><q>Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.</q></p>
+
+              </section>
+            
+              <section>
                 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Single line comment</span>
 
 <span class="cm">/*
@@ -232,17 +271,26 @@ comment
 */</span>
 </code></pre></div></div>
 
-            </section>
-            <section>
-                <img src="/game-io-workshops/img/w1_comments.jpg"/>
-            </section>
-        </section>
-        <section>
-            <section>
-                <h4>Variables</h4>
-                <img width='500px' src="/game-io-workshops/img/variable_box.png"/>
-            </section>
-            <section>
+              </section>
+            
+              <section>
+                <p><img src="/game-io-workshops/img/w1_comments.jpg" /></p>
+
+              </section>
+            
+          
+          </section>
+        
+          <section>
+          
+            
+              <section>
+                <h4 id="variables">Variables</h4>
+<p><img width="500px" src="/game-io-workshops/img/variable_box.png" /></p>
+
+              </section>
+            
+              <section>
                 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Declaring a variable</span>
 <span class="kd">let</span> <span class="nx">cardboardBox</span><span class="p">;</span>
 <span class="c1">// Assigning a value to a variable</span>
@@ -253,107 +301,132 @@ comment
 <span class="nx">cardboardBox</span><span class="p">;</span>
 </code></pre></div></div>
 
-            </section>
-            <section>
-                <h5>Naming variables</h5>
-                <ul>
-                    <li>Can be (almost) anything</li>
-                    <li>But be clear and consistent</li>
-                    <li>camelCase</li>
-                </ul>
-            </section>
-            <section>
-                <h5>Data types</h5>
-                <table style='font-size: 18pt'>
-                    <tr>
-                        <th>Data type</th>
-                        <th>Explanation</th>
-                        <th>Example</th>
-                    </tr>
-                    <tr>
-                        <td>String</td>
-                        <td>Text in quotation marks</td>
-                        <td><code>let workshopLeader = 'Theo'</code></td>
-                    </tr>
-                    <tr>
-                        <td>Number</td>
-                        <td>Any number</td>
-                        <td><code>let one = 1;</code><br><code>let pi = 3.14;</code></td>
-                    </tr>
-                    <tr>
-                        <td>Boolean</td>
-                        <td>True or False, <br>Yes or No, 1 or 0</td>
-                        <td><code>let awesome = true;</code></td>
-                    </tr>
-                    <tr>
-                        <td>Array</td>
-                        <td>A collection of data</td>
-                        <td><code>let dataTypes = ['string', 1, false];</code></td>
-                    </tr>
-                    <tr>
-                        <td>Object</td>
-                        <td>Everything else</td>
-                        <td><code>let game = new  Phaser.Game();</code></td>
-                    </tr>
-                </table>
-            </section>
-            <section>
-                <h5>Exercise</h5>
-                <script async src="//jsfiddle.net/theodedeken/cbd3t8Le/10/embed/js/"></script>
-            </section>
-        </section>
-        <section>
-            <section>
-                <h4>Operators</h4>
-                <img src='https://media.giphy.com/media/DHqth0hVQoIzS/giphy.gif'/>
-            </section>
-            <section>
-                <table style='font-size: 16pt'>
-                    <tr>
-                        <th>Operator group</th>
-                        <th>Symbols</th>
-                        <th>Explanation</th>
-                        <th>Example</th>
-                    </tr>
-                    <tr>
-                        <td>Arithmetic</td>
-                        <td><code>+, -, *, /</code></td>
-                        <td>Calculations</td>
-                        <td><code>2 * 5 + 4;</code></td>
-                    </tr>
-                    <tr>
-                        <td>Comparison</td>
-                        <td><code>===, !==, <, >, <=, >= </code></td>
-                        <td>Comparing numbers and objects</td>
-                        <td><code>one < 2;</code></td>
-                    </tr>
-                    <tr>
-                        <td>Logical</td>
-                        <td><code>!, &&, ||</code></td>
-                        <td>not, and, or</td>
-                        <td><code>!true;</code></td>
-                    </tr>
-                    <tr>
-                        <td>Assignment</td>
-                        <td><code>=</code></td>
-                        <td>Assigning to a variable</td>
-                        <td><code>let answer = 5;</code></td>
-                    </tr>
-                </table>
-            </section>
-            <section>
-                <h5>True or False?</h5>
-                <p><code class='fragment'>!false</code>  <span class='fragment'>← True</span><p>
-                <p><code class='fragment'>4 < 3</code>  <span class='fragment'>← False</span><p>
-                <p><code class='fragment'>0 <= 0</code>  <span class='fragment'>← True</span><p>
-                <p><code class='fragment'>1 > 2 - 3 || false && 2 !== 'two'</code>  <span class='fragment'>← True</span><p>
-            </section>
-        </section>
-        <section>
-            <section>
-                <h4>Conditionals</h4>
-            </section>
-            <section>
+              </section>
+            
+              <section>
+                <h5 id="naming-variables">Naming variables</h5>
+<ul>
+  <li>Can be (almost) anything</li>
+  <li>But be clear and consistent</li>
+  <li>camelCase</li>
+</ul>
+
+              </section>
+            
+              <section>
+                <h5 id="data-types">Data types</h5>
+<table style="font-size: 18pt">
+    <tr>
+        <th>Data type</th>
+        <th>Explanation</th>
+        <th>Example</th>
+    </tr>
+    <tr>
+        <td>String</td>
+        <td>Text in quotation marks</td>
+        <td><code>let workshopLeader = 'Theo'</code></td>
+    </tr>
+    <tr>
+        <td>Number</td>
+        <td>Any number</td>
+        <td><code>let one = 1;</code><br /><code>let pi = 3.14;</code></td>
+    </tr>
+    <tr>
+        <td>Boolean</td>
+        <td>True or False, <br />Yes or No, 1 or 0</td>
+        <td><code>let awesome = true;</code></td>
+    </tr>
+    <tr>
+        <td>Array</td>
+        <td>A collection of data</td>
+        <td><code>let dataTypes = ['string', 1, false];</code></td>
+    </tr>
+    <tr>
+        <td>Object</td>
+        <td>Everything else</td>
+        <td><code>let game = new  Phaser.Game();</code></td>
+    </tr>
+</table>
+
+              </section>
+            
+              <section>
+                <h5 id="exercise">Exercise</h5>
+<script async="" src="//jsfiddle.net/theodedeken/cbd3t8Le/10/embed/js/"></script>
+
+
+              </section>
+            
+          
+          </section>
+        
+          <section>
+          
+            
+              <section>
+                <h4 id="operators">Operators</h4>
+<p><img src="https://media.giphy.com/media/DHqth0hVQoIzS/giphy.gif" /></p>
+
+              </section>
+            
+              <section>
+                <table style="font-size: 16pt">
+    <tr>
+        <th>Operator group</th>
+        <th>Symbols</th>
+        <th>Explanation</th>
+        <th>Example</th>
+    </tr>
+    <tr>
+        <td>Arithmetic</td>
+        <td><code>+, -, *, /</code></td>
+        <td>Calculations</td>
+        <td><code>2 * 5 + 4;</code></td>
+    </tr>
+    <tr>
+        <td>Comparison</td>
+        <td><code>===, !==, &lt;, &gt;, &lt;=, &gt;= </code></td>
+        <td>Comparing numbers and objects</td>
+        <td><code>one &lt; 2;</code></td>
+    </tr>
+    <tr>
+        <td>Logical</td>
+        <td><code>!, &amp;&amp;, ||</code></td>
+        <td>not, and, or</td>
+        <td><code>!true;</code></td>
+    </tr>
+    <tr>
+        <td>Assignment</td>
+        <td><code>=</code></td>
+        <td>Assigning to a variable</td>
+        <td><code>let answer = 5;</code></td>
+    </tr>
+</table>
+
+              </section>
+            
+              <section>
+                <h5 id="true-or-false">True or False?</h5>
+<p><code class="fragment">!false</code>  <span class="fragment">← True</span><p>
+<p><code class="fragment">4 &lt; 3</code>  <span class="fragment">← False</span><p>
+<p><code class="fragment">0 &lt;= 0</code>  <span class="fragment">← True</span><p>
+<p><code class="fragment">1 &gt; 2 - 3 || false &amp;&amp; 2 !== 'two'</code>  <span class="fragment">← True</span><p>
+</p></p></p></p></p></p></p></p>
+
+              </section>
+            
+          
+          </section>
+        
+          <section>
+          
+            
+              <section>
+                <h4 id="conditionals">Conditionals</h4>
+
+              </section>
+            
+              <section>
                 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 <span class="k">if</span><span class="p">(</span><span class="nx">result</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// If the expression is true go in this codeblock</span>
@@ -367,17 +440,26 @@ comment
 <span class="p">}</span>
 </code></pre></div></div>
 
-            </section>
-            <section>
-                <img src="/game-io-workshops/img/w1_cond_meme.png"/>
-            </section>
-        </section>
-        <section>
-            <section>
-                <h4>Loops</h4>
-                <img src='https://imgs.xkcd.com/comics/delicious.png' />
-            </section>
-            <section>
+              </section>
+            
+              <section>
+                <p><img src="/game-io-workshops/img/w1_cond_meme.png" /></p>
+
+              </section>
+            
+          
+          </section>
+        
+          <section>
+          
+            
+              <section>
+                <h4 id="loops">Loops</h4>
+<p><img src="https://imgs.xkcd.com/comics/delicious.png" /></p>
+
+              </section>
+            
+              <section>
                 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// A loop expression contains three parts</span>
 <span class="c1">// initialization; end condition; step action</span>
 <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
@@ -385,25 +467,43 @@ comment
 <span class="p">}</span>
 </code></pre></div></div>
 
-            </section>
-            <section>
-                <h5>Can you predict the output of these loops?</h5>
-            </section>
-            <section>
-                <script async src="//jsfiddle.net/theodedeken/do2m5xuh/3/embed/js,result/"></script>
-            </section>
-            <section>
-                <script async src="//jsfiddle.net/theodedeken/1weazfLt/2/embed/js,result/"></script>
-            </section>
-            <section>
-                <script async src="//jsfiddle.net/theodedeken/7jy1h6ce/embed/js,result/"></script>
-            </section>
-        </section>
-        <section>
-            <section>
-                <h4>Functions</h4>
-            </section>
-            <section>
+              </section>
+            
+              <section>
+                <h5 id="can-you-predict-the-output-of-these-loops">Can you predict the output of these loops?</h5>
+
+              </section>
+            
+              <section>
+                <script async="" src="//jsfiddle.net/theodedeken/do2m5xuh/3/embed/js,result/"></script>
+
+
+              </section>
+            
+              <section>
+                <script async="" src="//jsfiddle.net/theodedeken/1weazfLt/2/embed/js,result/"></script>
+
+
+              </section>
+            
+              <section>
+                <script async="" src="//jsfiddle.net/theodedeken/7jy1h6ce/embed/js,result/"></script>
+
+
+              </section>
+            
+          
+          </section>
+        
+          <section>
+          
+            
+              <section>
+                <h4 id="functions">Functions</h4>
+
+              </section>
+            
+              <section>
                 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Function declaration</span>
 <span class="kd">function</span> <span class="nx">multiply</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">num1</span> <span class="o">*</span> <span class="nx">num2</span><span class="p">;</span>
@@ -415,20 +515,34 @@ comment
 <span class="nx">multiply</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
 </code></pre></div></div>
 
-            </section>
-        </section>
-        <section>
-            <img src='https://www.explainxkcd.com/wiki/images/c/c6/code_quality.png' />
-        </section>
-        <section>
-            <h3>Phaser Introduction</h3>
-            <iframe src="/game-io-workshops/workshops/w1/bouncy-ball" height="450" width="800"></iframe> 
-        </section>
+              </section>
+            
+          
+          </section>
+        
+          <section>
+          
+            <p><img src="https://www.explainxkcd.com/wiki/images/c/c6/code_quality.png" /></p>
+
+          
+          </section>
+        
+          <section>
+          
+            <h3 id="phaser-introduction">Phaser Introduction</h3>
+<iframe src="/game-io-workshops/workshops/w1/bouncy-ball" height="450" width="800"></iframe>
+
+          
+          </section>
+        
+      </div>
     </div>
-</div>
-<script>
-    Reveal.initialize({history: true});
-</script> <footer>
+
+    <script>
+      Reveal.initialize({history: true});
+    </script>
+    
+    <footer>
   <div class="container beautiful-jekyll-footer">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -476,6 +590,7 @@ comment
   </div>
 </footer>
  
+    
 
 
   
