@@ -1,0 +1,21 @@
+---
+layout: base
+---
+
+{% include header.html type="page" %}
+
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      {% for jumbo in page.jumbos %}
+      <div class="jumbotron">
+        <h1>{{ jumbo.title }}</h1>
+        <p>{{ jumbo.description }}</p>
+        <p><a class="btn btn-primary btn-lg" href="{{ jumbo.button_link }}" role="button">{{ jumbo.button_text }}</a></p>
+      </div>
+      {% endfor %}
+      {{ content }}
+    </div>
+  </div>
+</div>
