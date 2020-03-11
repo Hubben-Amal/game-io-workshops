@@ -5,14 +5,6 @@ next: workshops/w2/exercise/step_1
 previous: workshops/w2/exercise/
 ---
 
-<div class="well">
-    <p class="text-center">
-    <img src="{{ "img/bouncy-ball/ball.png" | relative_url }}" width="64px" style="image-rendering: crisp-edges; image-rendering: -moz-crisp-edges; image-rendering-pixelated"/>
-    <img src="{{ "img/bouncy-ball/ground.png" | relative_url }}" width="64px" style="image-rendering: crisp-edges; image-rendering: -moz-crisp-edges; image-rendering-pixelated"/>
-    <img src="{{ "img/bouncy-ball/cactus.png" | relative_url }}" width="64px" style="image-rendering: crisp-edges; image-rendering: -moz-crisp-edges; image-rendering-pixelated"/>
-    </p>
-</div>
-
 ## Loading a sprite from a url
 An image can be loaded into the game engine by the method `this.load.image(id, url)`. 
 Where `id` is a string identifier you use to refer to the loaded image later on and `url` is the web location of the image.
