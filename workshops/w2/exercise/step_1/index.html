@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+    <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover" name="viewport">
+
+    <title>
+         Using sprites 
+    </title>
+
+    <meta name="author" content="Theo Dedeken" /> 
+
+    <link rel="alternate" type="application/rss+xml" title="Game I/O - Game development workshops" href="hubben-amal.github.io/game-io-workshops/feed.xml" /> 
+ 
+ 
+   
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+    
+    <link rel="stylesheet" href="/game-io-workshops/css/bootstrap.min.css" /> 
+    <link rel="stylesheet" href="/game-io-workshops/css/bootstrap-social.css" /> 
+    <link rel="stylesheet" href="/game-io-workshops/css/main.css" />    
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" /> 
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" />     
+
+    <!-- Facebook OpenGraph tags -->
+     
+    <meta property="og:title" content="Using sprites" />  
+    <meta property="og:description" content="## Loading a sprite from a url An image can be loaded into the game engine by the method `this.load.image(id, url)`. Where `id` is a string identifier you use to refer to the loaded image later on and `url` is the web location of the image. The loading of resources..."> 
+
+
+    <meta content="website" property="og:type" /> 
+    <meta property="og:url" content="hubben-amal.github.io/game-io-workshops/workshops/w2/exercise/step_1/" />
+    <link rel="canonical" href="hubben-amal.github.io/game-io-workshops/workshops/w2/exercise/step_1/" />  
+    <meta property="og:image" content="hubben-amal.github.io/game-io-workshops/img/game-io-logo.png" /> 
+
+
+    <!-- Twitter summary cards -->
+    <meta content="summary" name="twitter:card" />
+    <meta content="@" name="twitter:site" />
+    <meta content="@" name="twitter:creator" /> 
+    <meta name="twitter:title" content="Using sprites" />  
+    <meta name="twitter:description" content="## Loading a sprite from a url An image can be loaded into the game engine by the method `this.load.image(id, url)`. Where `id` is a string identifier you use to refer to the loaded image later on and `url` is the web location of the image. The loading of resources...">  
+    <meta name="twitter:image" content="hubben-amal.github.io/game-io-workshops/img/game-io-logo.png" />   
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href=/game-io-workshops/apple-icon-57x57.png ">
+    <link rel="apple-touch-icon " sizes="60x60 " href=/game-io-workshops/apple-icon-60x60.png ">
+    <link rel="apple-touch-icon" sizes="72x72" href=/game-io-workshops/apple-icon-72x72.png ">
+    <link rel="apple-touch-icon " sizes="76x76 " href=/game-io-workshops/apple-icon-76x76.png ">
+    <link rel="apple-touch-icon" sizes="114x114" href=/game-io-workshops/apple-icon-114x114.png ">
+    <link rel="apple-touch-icon " sizes="120x120 " href=/game-io-workshops/apple-icon-120x120.png ">
+    <link rel="apple-touch-icon" sizes="144x144" href=/game-io-workshops/apple-icon-144x144.png ">
+    <link rel="apple-touch-icon " sizes="152x152 " href=/game-io-workshops/apple-icon-152x152.png ">
+    <link rel="apple-touch-icon" sizes="180x180" href=/game-io-workshops/apple-icon-180x180.png ">
+    <link rel="icon " type="image/png " sizes="192x192 " href=/game-io-workshops/android-icon-192x192.png ">
+    <link rel="icon" type="image/png" sizes="32x32" href=/game-io-workshops/favicon-32x32.png ">
+    <link rel="icon " type="image/png " sizes="96x96 " href=/game-io-workshops/favicon-96x96.png ">
+    <link rel="icon" type="image/png" sizes="16x16" href=/game-io-workshops/favicon-16x16.png ">
+    <link rel="manifest " href=/game-io-workshops/manifest.json ">
+    <meta content="#ffffff" name="msapplication-TileColor">
+    <meta name="msapplication-TileImage" content=/game-io-workshops/ms-icon-144x144.png ">
+    <meta content="#ffffff " name="theme-color ">
+
+</head>
+
+    <body>
+
+        
+
+
+        <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-target="#main-navbar" data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button><a class="navbar-brand" href="/game-io-workshops/">Game I/O</a></div>
+
+        <div class="collapse navbar-collapse" id="main-navbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/game-io-workshops/schedule">Schedule</a>
+                </li>
+                <li class="navlinks-container">
+                    <a class="navlinks-parent" href="javascript:void(0)">Workshops</a>
+                    <div class="navlinks-children">
+                        <a href="/game-io-workshops/workshops/w1/index">W1 - Basics</a>
+                        <a href="/game-io-workshops/workshops/w2/index">W2 - Phaser Systems</a>
+                    </div>
+                </li>
+                
+                <li class="navlinks-container">
+                    <a class="navlinks-parent" href="javascript:void(0)">Additional resources</a>
+                    <div class="navlinks-children">
+                        <a href="/game-io-workshops/additional/javascript">Learning Javascript</a>
+                        <a href="https://photonstorm.github.io/phaser3-docs/">Phaser documentation</a>
+                        <a href="https://jsfiddle.net/theodedeken/cxz8Ly1p/49/">Phaser quickstart</a>
+                    </div>
+                </li>
+                
+                <li>
+                    <a href="https://www.theodedeken.xyz">Author's home</a>
+                </li></ul>
+        </div>
+
+        
+        <div class="avatar-container">
+            <div class="avatar-img-border">
+                <a href="/game-io-workshops/">
+                    <img class="avatar-img" src="/game-io-workshops/img/game-io-logo.png" />
+                </a>
+            </div>
+        </div>
+        
+
+    </div>
+</nav>
+
+        <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-heading">
+          <h1>Using sprites</h1>
+		  
+		  
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <h2 id="loading-a-sprite-from-a-url">Loading a sprite from a url</h2>
+<p>An image can be loaded into the game engine by the method <code class="highlighter-rouge">this.load.image(id, url)</code>. 
+Where <code class="highlighter-rouge">id</code> is a string identifier you use to refer to the loaded image later on and <code class="highlighter-rouge">url</code> is the web location of the image.</p>
+
+<p>The loading of resources usually happens before the start of the game, for this purpose Phaser has a special function called <code class="highlighter-rouge">preload</code>.
+This function will get executed before the <code class="highlighter-rouge">create</code> function and should be used to load any images, sounds or music into memory.
+This function gets hooked up to the game engine in the same way as the <code class="highlighter-rouge">create</code> and <code class="highlighter-rouge">update</code> functions.</p>
+
+<p>For this exercise there are some basic images available for the ball, pillar and ground in our game. They can be found in the following locations.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>name</th>
+      <th>url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="/game-io-workshops/img/bouncy-ball/ball.png" alt="ball" /></td>
+      <td><strong>ball</strong></td>
+      <td>https://hubben-amal.github.io/game-io-workshops/img/bouncy-ball/ball.png</td>
+    </tr>
+    <tr>
+      <td><img src="/game-io-workshops/img/bouncy-ball/cactus.png" alt="cactus" /></td>
+      <td><strong>cactus</strong></td>
+      <td>https://hubben-amal.github.io/game-io-workshops/img/bouncy-ball/cactus.png</td>
+    </tr>
+    <tr>
+      <td><img src="/game-io-workshops/img/bouncy-ball/ground.png" alt="ground" /></td>
+      <td><strong>ground</strong></td>
+      <td>https://hubben-amal.github.io/game-io-workshops/img/bouncy-ball/ground.png</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Now try to create a <code class="highlighter-rouge">preload</code> function that loads these three sprites into memory using <code class="highlighter-rouge">this.load.image(id, url)</code> and hook it up in the config variable.
+You can find the solution below but first try to figure it out yourself.</p>
+
+<!-- Collapse buttons -->
+<p><button class="btn btn-warning" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+Click here to see solution
+</button>
+<!-- / Collapse buttons --></p>
+
+<!-- Collapsible element -->
+<div class="collapse" id="collapseExample">
+    
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="na">scene</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">preload</span><span class="p">:</span> <span class="nx">preload</span><span class="p">,</span>
+        <span class="na">create</span><span class="p">:</span> <span class="nx">create</span><span class="p">,</span>
+        <span class="na">update</span><span class="p">:</span> <span class="nx">update</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// ...</span>
+
+<span class="cm">/**
+ * Preload function 
+ * This function gets executed once before the create function
+ *
+ * Use this function to load all assets (images, music, sounds) into 
+ * memory so you can use them later to build your game scene
+ */</span>
+<span class="kd">function</span> <span class="nx">preload</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Load the sprites for our game</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">load</span><span class="p">.</span><span class="nx">image</span><span class="p">(</span>
+        <span class="s1">'ball'</span><span class="p">,</span>
+        <span class="s1">'https://hubben-amal.github.io/game-io-workshops/img/bouncy-ball/ball.png'</span>
+    <span class="p">)</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">load</span><span class="p">.</span><span class="nx">image</span><span class="p">(</span>
+        <span class="s1">'ground'</span><span class="p">,</span>
+        <span class="s1">'https://hubben-amal.github.io/game-io-workshops/img/bouncy-ball/ground.png'</span>
+    <span class="p">)</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">load</span><span class="p">.</span><span class="nx">image</span><span class="p">(</span>
+        <span class="s1">'cactus'</span><span class="p">,</span>
+        <span class="s1">'https://hubben-amal.github.io/game-io-workshops/img/bouncy-ball/cactus.png'</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+</div>
+
+<h3 id="placing-the-sprites-in-the-world">Placing the sprites in the world</h3>
+<p>Our sprites are now loaded into memory but they do not exist yet in the actual game.
+This is done by the function: <code class="highlighter-rouge">this.add.image(x, y, id);</code> where <code class="highlighter-rouge">id</code> is the same string we used to load our images into memory.</p>
+
+<p>We can easily replace the ball and pillar objects by their respective images.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Add the bouncy ball image to the game</span>
+<span class="nx">ball</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">image</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">370</span><span class="p">,</span> <span class="s1">'ball'</span><span class="p">);</span>
+<span class="c1">// Add the cactus image where we will bounce over</span>
+<span class="nx">pillar</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">image</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">340</span><span class="p">,</span> <span class="s1">'cactus'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="pixelart-look">Pixelart look</h3>
+<p>But this doesn’t immediately work with the coordinates we specified earlier.
+Before we fix this we will also scale our images by 2 to make our pixel art images more clear.
+To achieve this we use the method <code class="highlighter-rouge">setScale(scale)</code> on the images with a <code class="highlighter-rouge">scale</code> value of 2.
+We also need to add the <code class="highlighter-rouge">pixelArt = true</code> option to our config so the scaling of the images maintains the crisp edges.
+These coordinates should work better with the scaled images of the ball and pillar:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Create and add the bouncy ball</span>
+<span class="nx">ball</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">image</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="s1">'ball'</span><span class="p">);</span>
+<span class="c1">// Create and add the pillar where we will bounce over</span>
+<span class="nx">pillar</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">image</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="s1">'cactus'</span><span class="p">);</span>
+
+<span class="c1">// scaling the images</span>
+<span class="nx">ball</span><span class="p">.</span><span class="nx">setScale</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="nx">pillar</span><span class="p">.</span><span class="nx">setScale</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Also don’t forget to add the <code class="highlighter-rouge">pixelArt</code> option to the config like this:</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="c1">// This options turns off blurring when scaling up</span>
+    <span class="na">pixelArt</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>The ground will require a bit more work.</p>
+<h3 id="repeating-the-ground">Repeating the ground</h3>
+<p>The ground spans the entire screen so to fill it all with our one image we need to repeat it accross.
+To help us with these kinds of usecases Phaser provides the <a href="https://photonstorm.github.io/phaser3-docs/Phaser.GameObjects.TileSprite.html"><code class="highlighter-rouge">tileSprite</code></a> class.
+This object is created using the <code class="highlighter-rouge">this.add.tileSprite(x, y, width, height, id)</code> method which repeats the image specified by <code class="highlighter-rouge">id</code> over the <code class="highlighter-rouge">width</code> and <code class="highlighter-rouge">height</code>.</p>
+
+<p>We can now replace the creation of the ground with these lines of code</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Create and add the ground</span>
+<span class="nx">ground</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">tileSprite</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">410</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="s1">'ground'</span><span class="p">);</span>
+<span class="nx">ground</span><span class="p">.</span><span class="nx">setScale</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="make-the-ground-move">Make the ground move</h2>
+<p>The game already looks a lot better, but the collision detection is currently broken (we will fix this in the next step).
+First let’s make the ground move along with the cactus.
+For this we again use a trick to make things easier for us and actually move the position of the image in the <code class="highlighter-rouge">tileSprite</code> and leave the position of the ground untouched.</p>
+
+<p>Adding this line in the right place in the <code class="highlighter-rouge">update</code> function should do the trick:</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// increase the position on the x-axis by half the speed to make </span>
+<span class="c1">// the ground move in the same direction and speed as the cacti</span>
+<span class="nx">ground</span><span class="p">.</span><span class="nx">tilePositionX</span> <span class="o">+=</span> <span class="mf">2.5</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="speed-variable">Speed variable</h3>
+<p>The ground is now moving at the same speed as the cacti.
+But in doing so we created a potential future bug. 
+The speed of the cacti and the ground is related to eachother but now they both are specified separately.
+If we decide to change the speed of the game we need to modify our code in two different places, which could create an inconsistency if we forget to change one of them.
+To solve this we will move the speed to a variable and use it in the <code class="highlighter-rouge">update</code> method.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Speed of the game</span>
+<span class="kd">let</span> <span class="nx">speed</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">update</span><span class="p">(){</span>
+    <span class="c1">// ...</span>
+
+    <span class="c1">// moving pillar towards the ball</span>
+    <span class="nx">pillar</span><span class="p">.</span><span class="nx">setX</span><span class="p">(</span><span class="nx">pillar</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">speed</span><span class="p">);</span>
+    <span class="c1">// increase the position on the x-axis by half the speed to make </span>
+    <span class="c1">// the ground move in the same direction and speed as the cacti</span>
+    <span class="nx">ground</span><span class="p">.</span><span class="nx">tilePositionX</span> <span class="o">+=</span> <span class="nx">speed</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+        <ul class="pager blog-pager">
+        
+        <li class="previous">
+            <a href="/game-io-workshops/workshops/w2/exercise/" data-toggle="tooltip" data-placement="top" title="Previous step">&larr; Previous Step</a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/game-io-workshops/workshops/w2/exercise/step_1" data-toggle="tooltip" data-placement="top" title="Next step">Next Step &rarr;</a>
+        </li>
+        
+        </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+        <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links"><li><a href="/game-io-workshops/feed.xml" title="RSS"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">RSS</span>
+              </a>
+            </li><li><a href="mailto:theo.dedeken@amal.se" title="Email me"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">Email me</span>
+              </a>
+            </li><li><a href="https://github.com/theodedeken" title="GitHub"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">GitHub</span>
+              </a>
+            </li><li><a href="https://twitter.com/theodedeken" title="Twitter"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">Twitter</span>
+              </a>
+            </li></ul>
+      <p class="copyright text-muted">
+      Theo Dedeken
+      &nbsp;&bull;&nbsp;
+      2020
+
+      
+
+      
+      </p>
+          <!-- Please don't remove this, keep my open source work credited :) -->
+    <p class="theme-by text-muted">
+      Theme by
+      <a href="https://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+    </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+        
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+          document.write('<script src="/game-io-workshops/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/game-io-workshops/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/game-io-workshops/js/main.js"></script>
+    
+  
+
+
+
+
+
+
+
+    </body>
+</html>
