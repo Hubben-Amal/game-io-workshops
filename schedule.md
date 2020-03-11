@@ -29,7 +29,9 @@ Introduction of the workshops, programming language, game development framework 
 
 [See the workshop resources here!](workshops/w1/index.md)
 ## W2 - Phaser Systems
-**Coming Soon!**
+Introduction of the workshops, programming language, game development framework and workshop leader. 
+
+[See the workshop resources here!](workshops/w2/index.md)
 ## W3 - Pixel Art
 **Coming Soon!**
 ## W4 - Sound Effects and Music

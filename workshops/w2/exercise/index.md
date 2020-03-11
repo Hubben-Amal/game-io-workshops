@@ -10,8 +10,7 @@ In this exercise we will improve the basic game we made in the previous exercise
 * Sprites
 * Physics
 * Dynamic content
-* Animation
-* Sound
 * UI
+* More
 
 If you did not finish the previous [exercise]({{ "workshops/w1/exercise" | relative_url }}) it is recommended to do so first as we will start from the code we have written previously. If you lost your progress or don't want to go through the last exercise you can start from this [fiddle](TODO).
