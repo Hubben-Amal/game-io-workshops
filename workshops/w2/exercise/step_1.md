@@ -1,7 +1,7 @@
 ---
 layout: exercise
 title: Using sprites
-next: workshops/w2/exercise/step_1
+next: workshops/w2/exercise/step_2
 previous: workshops/w2/exercise/
 ---
 
@@ -78,33 +78,23 @@ function preload() {
 Our sprites are now loaded into memory but they do not exist yet in the actual game.
 This is done by the function: `this.add.image(x, y, id);` where `id` is the same string we used to load our images into memory.
 
-We can easily replace the ball and pillar objects by their respective images.
+We can easily replace the ball and pillar objects by their respective images and move the ball up a bit as the image is bigger than our original circle.
+We will also scale our images up by a factor of 2 by using the `setScale(scale)` method of the image to create a pixel art look
 ```javascript
 // Add the bouncy ball image to the game
-ball = this.add.image(100, 370, 'ball');
+ball = this.add.image(100, 360, 'ball');
 // Add the cactus image where we will bounce over
 pillar = this.add.image(1000, 340, 'cactus');
-```
-
-### Pixelart look
-But this doesn't immediately work with the coordinates we specified earlier.
-Before we fix this we will also scale our images by 2 to make our pixel art images more clear.
-To achieve this we use the method `setScale(scale)` on the images with a `scale` value of 2.
-We also need to add the `pixelArt = true` option to our config so the scaling of the images maintains the crisp edges.
-These coordinates should work better with the scaled images of the ball and pillar:
-
-```javascript
-// Create and add the bouncy ball
-ball = this.add.image(100, 360, 'ball');
-// Create and add the pillar where we will bounce over
-pillar = this.add.image(1000, 300, 'cactus');
 
 // scaling the images
 ball.setScale(2);
 pillar.setScale(2);
 ```
 
-Also don't forget to add the `pixelArt` option to the config like this:
+### Pixelart look
+But this doesn't immediately work as the images are being blurred by default.
+We also need to add the `pixelArt = true` option to our config so the scaling of the images maintains the crisp edges.
+
 ```javascript
 let config = {
     // ...

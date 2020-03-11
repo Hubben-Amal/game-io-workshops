@@ -73,7 +73,7 @@ function create() {
     // Add the bouncy ball image to the game
     ball = this.add.image(100, 360, 'ball');
     // Add the cactus image where we will bounce over
-    pillar = this.add.image(1000, 300, 'cactus');
+    pillar = this.add.image(700, 340, 'cactus');
     // scaling the images
     ball.setScale(2);
     pillar.setScale(2);
