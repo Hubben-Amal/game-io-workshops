@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+    <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover" name="viewport">
+
+    <title>
+         Adding physics 
+    </title>
+
+    <meta name="author" content="Theo Dedeken" /> 
+
+    <link rel="alternate" type="application/rss+xml" title="Game I/O - Game development workshops" href="hubben-amal.github.io/game-io-workshops/feed.xml" /> 
+ 
+ 
+   
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+    
+    <link rel="stylesheet" href="/game-io-workshops/css/bootstrap.min.css" /> 
+    <link rel="stylesheet" href="/game-io-workshops/css/bootstrap-social.css" /> 
+    <link rel="stylesheet" href="/game-io-workshops/css/main.css" />    
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" /> 
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" />     
+
+    <!-- Facebook OpenGraph tags -->
+     
+    <meta property="og:title" content="Adding physics" />  
+    <meta property="og:description" content="## Enabling physics Before we are able to use physics we need to enable them in our config. Add this to the config to enable physics. ```javascript physics: { // use the arcade physics engine default: &quot;arcade&quot;, arcade: { // debug option to show velocity lines and // collision boxes..."> 
+
+
+    <meta content="website" property="og:type" /> 
+    <meta property="og:url" content="hubben-amal.github.io/game-io-workshops/workshops/w2/exercise/step_2/" />
+    <link rel="canonical" href="hubben-amal.github.io/game-io-workshops/workshops/w2/exercise/step_2/" />  
+    <meta property="og:image" content="hubben-amal.github.io/game-io-workshops/img/game-io-logo.png" /> 
+
+
+    <!-- Twitter summary cards -->
+    <meta content="summary" name="twitter:card" />
+    <meta content="@" name="twitter:site" />
+    <meta content="@" name="twitter:creator" /> 
+    <meta name="twitter:title" content="Adding physics" />  
+    <meta name="twitter:description" content="## Enabling physics Before we are able to use physics we need to enable them in our config. Add this to the config to enable physics. ```javascript physics: { // use the arcade physics engine default: &quot;arcade&quot;, arcade: { // debug option to show velocity lines and // collision boxes...">  
+    <meta name="twitter:image" content="hubben-amal.github.io/game-io-workshops/img/game-io-logo.png" />   
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href=/game-io-workshops/apple-icon-57x57.png ">
+    <link rel="apple-touch-icon " sizes="60x60 " href=/game-io-workshops/apple-icon-60x60.png ">
+    <link rel="apple-touch-icon" sizes="72x72" href=/game-io-workshops/apple-icon-72x72.png ">
+    <link rel="apple-touch-icon " sizes="76x76 " href=/game-io-workshops/apple-icon-76x76.png ">
+    <link rel="apple-touch-icon" sizes="114x114" href=/game-io-workshops/apple-icon-114x114.png ">
+    <link rel="apple-touch-icon " sizes="120x120 " href=/game-io-workshops/apple-icon-120x120.png ">
+    <link rel="apple-touch-icon" sizes="144x144" href=/game-io-workshops/apple-icon-144x144.png ">
+    <link rel="apple-touch-icon " sizes="152x152 " href=/game-io-workshops/apple-icon-152x152.png ">
+    <link rel="apple-touch-icon" sizes="180x180" href=/game-io-workshops/apple-icon-180x180.png ">
+    <link rel="icon " type="image/png " sizes="192x192 " href=/game-io-workshops/android-icon-192x192.png ">
+    <link rel="icon" type="image/png" sizes="32x32" href=/game-io-workshops/favicon-32x32.png ">
+    <link rel="icon " type="image/png " sizes="96x96 " href=/game-io-workshops/favicon-96x96.png ">
+    <link rel="icon" type="image/png" sizes="16x16" href=/game-io-workshops/favicon-16x16.png ">
+    <link rel="manifest " href=/game-io-workshops/manifest.json ">
+    <meta content="#ffffff" name="msapplication-TileColor">
+    <meta name="msapplication-TileImage" content=/game-io-workshops/ms-icon-144x144.png ">
+    <meta content="#ffffff " name="theme-color ">
+
+</head>
+
+    <body>
+
+        
+
+
+        <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-target="#main-navbar" data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button><a class="navbar-brand" href="/game-io-workshops/">Game I/O</a></div>
+
+        <div class="collapse navbar-collapse" id="main-navbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/game-io-workshops/schedule">Schedule</a>
+                </li>
+                <li class="navlinks-container">
+                    <a class="navlinks-parent" href="javascript:void(0)">Workshops</a>
+                    <div class="navlinks-children">
+                        <a href="/game-io-workshops/workshops/w1/index">W1 - Basics</a>
+                        <a href="/game-io-workshops/workshops/w2/index">W2 - Phaser Systems</a>
+                    </div>
+                </li>
+                
+                <li class="navlinks-container">
+                    <a class="navlinks-parent" href="javascript:void(0)">Additional resources</a>
+                    <div class="navlinks-children">
+                        <a href="/game-io-workshops/additional/javascript">Learning Javascript</a>
+                        <a href="/game-io-workshops/additional/documentation">Phaser documentation</a>
+                        <a href="/game-io-workshops/additional/tutorials">Extra tutorials</a>
+                        <a href="https://jsfiddle.net/theodedeken/cxz8Ly1p/49/">Phaser quickstart</a>
+                    </div>
+                </li>
+                
+                <li>
+                    <a href="https://www.theodedeken.xyz">Author's home</a>
+                </li></ul>
+        </div>
+
+        
+        <div class="avatar-container">
+            <div class="avatar-img-border">
+                <a href="/game-io-workshops/">
+                    <img class="avatar-img" src="/game-io-workshops/img/game-io-logo.png" />
+                </a>
+            </div>
+        </div>
+        
+
+    </div>
+</nav>
+
+        <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-heading">
+          <h1>Adding physics</h1>
+		  
+		  
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <h2 id="enabling-physics">Enabling physics</h2>
+<p>Before we are able to use physics we need to enable them in our config.
+Add this to the config to enable physics.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">physics</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">// use the arcade physics engine</span>
+    <span class="nl">default</span><span class="p">:</span> <span class="s2">"arcade"</span><span class="p">,</span>
+    <span class="nx">arcade</span><span class="p">:</span> <span class="p">{</span>
+        <span class="c1">// debug option to show velocity lines and </span>
+        <span class="c1">// collision boxes</span>
+        <span class="nl">debug</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>We use the <code class="highlighter-rouge">arcade</code> physics engine as it is simple and lightweight, so ideal for our game.
+The possible engines are:</p>
+<ul>
+  <li><code class="highlighter-rouge">arcade</code>: physics with non-rotated rectangles and circles, no complex collision shapes</li>
+  <li><code class="highlighter-rouge">matter</code>: fully-featured physics engine, not built for games especially but can still be used for them. 
+Supports very complex physics, like fluids, chaining of objects, springs.
+Is slower to execute as a result of this.</li>
+  <li><code class="highlighter-rouge">impact</code>: a bit more features than <code class="highlighter-rouge">arcade</code> like sloped colliders.</li>
+</ul>
+
+<h3 id="setting-up-collision-between-ball-and-pillar">Setting up collision between ball and pillar</h3>
+<p>Now that we have enabled the physics engine we need to change our ball and pillar to physics objects.
+To add a physics object into the game we use the <code class="highlighter-rouge">this.physics.add.sprite(x, y, id)</code> function.
+It works the same way as <code class="highlighter-rouge">this.add.image()</code> so we can just replace it our code where the ball and pillar are created.</p>
+
+<p>To check for collisions between them we use the <code class="highlighter-rouge">this.physics.add.overlap()</code> function, where we can set up a function to be called whenever two colliders overlap.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Collision detection</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">physics</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">overlap</span><span class="p">(</span><span class="nx">ball</span><span class="p">,</span> <span class="nx">pillar</span><span class="p">,</span> <span class="nx">gameover</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="use-velocity-to-move-the-pillar">Use velocity to move the pillar</h3>
+<p>This in of itself is not enough to make the collision work though. 
+The collision will not register because we are changing the position of the ball and pillar manually</p>
+
+<p>Instead we should use <strong>velocity</strong>.
+This simplifies the movement of te pillar quite a bit as we just need to set the velocity once at the start of the game and the pillar will keep moving until we set the velocity to 0.
+We can use the <code class="highlighter-rouge">setVelocity(x, y)</code>, <code class="highlighter-rouge">setVelocityX(x)</code>, <code class="highlighter-rouge">setVelocityY(y)</code> methods of the physics object for this.
+Velocity is specified in pixels per second so we need to multiply our <code class="highlighter-rouge">speed</code> variable by 60 to get the correct velocity value.</p>
+
+<p>This line should be added in the <code class="highlighter-rouge">update</code> method in the correct spot, keep in mind this should only be set <strong>once</strong> when we start the game.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">pillar</span><span class="p">.</span><span class="nx">setVelocityX</span><span class="p">(</span><span class="o">-</span><span class="nx">speed</span> <span class="o">*</span> <span class="mi">60</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><strong>Also don’t forget to delete these lines as they are no longer necessary</strong></p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">pillar</span><span class="p">.</span><span class="nx">x</span> <span class="o">==</span> <span class="mi">100</span> <span class="o">&amp;&amp;</span> <span class="nx">ball</span><span class="p">.</span><span class="nx">y</span> <span class="o">==</span> <span class="mi">370</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">gameover</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// moving pillar towards the ball</span>
+<span class="nx">pillar</span><span class="p">.</span><span class="nx">setX</span><span class="p">(</span><span class="nx">pillar</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">speed</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Lastly add this line to the <code class="highlighter-rouge">resetGame</code> function so the velocity gets set to 0 again when we reset our game</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">pillar</span><span class="p">.</span><span class="nx">setVelocityX</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</code></pre></div></div>
+<h2 id="bouncing-using-physics">Bouncing using physics</h2>
+<p>Collisions are working now, but the game has also become a lot harder.
+To make things easier we can change the bounce of the ball now. 
+By using gravity and velocity the bounce movement becomes a lot clearer to the player.
+This way it is easier to learn the mechanics of the game and to jump the cacti.</p>
+
+<h3 id="adding-gravity">Adding gravity</h3>
+<p>Enabling gravity can be done in two ways:</p>
+<ul>
+  <li>Setting it on a physics object</li>
+  <li>Enabling it in the config</li>
+</ul>
+
+<p>We will use the first option as only the ball will be affected by gravity.
+We can set the gravity on an object by using the <code class="highlighter-rouge">setGravity()</code> function.
+We also need to enable collision with the world bounds otherwise our ball will just fall out of our world.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Add gravity to the ball</span>
+<span class="nx">ball</span><span class="p">.</span><span class="nx">setGravityY</span><span class="p">(</span><span class="mi">600</span><span class="p">);</span>
+<span class="nx">ball</span><span class="p">.</span><span class="nx">setCollideWorldBounds</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+
+<span class="c1">// Setup the bounds for the world</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">physics</span><span class="p">.</span><span class="nx">world</span><span class="p">.</span><span class="nx">setBounds</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">sys</span><span class="p">.</span><span class="nx">game</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">sys</span><span class="p">.</span><span class="nx">game</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">height</span> <span class="o">-</span> <span class="mi">60</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Adding these lines in the <code class="highlighter-rouge">create</code> function should do the trick.
+<em>Note that we also change the world bounds so the ball will rest on top of the ground.</em></p>
+
+<h3 id="jumping-correctly">Jumping correctly</h3>
+<p>Now we can replace the <code class="highlighter-rouge">jump</code> and <code class="highlighter-rouge">dropDown</code> functions as follows:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">jump</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// set velocity of the ball</span>
+    <span class="nx">ball</span><span class="p">.</span><span class="nx">setVelocityY</span><span class="p">(</span><span class="o">-</span><span class="mi">500</span><span class="p">);</span>
+    <span class="c1">// set jumping state to true so we can only jump once</span>
+    <span class="nx">jumping</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="c1">// lock our spacebar</span>
+    <span class="nx">keylock</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">dropDown</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// after dropping down we can jump again</span>
+    <span class="nx">jumping</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">space</span><span class="p">.</span><span class="nx">isUp</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">keylock</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>We can’t really use the <code class="highlighter-rouge">setTimeout</code> function anymore to call <code class="highlighter-rouge">dropDown</code> as we don’t know exactly when the ball will touch the ground again.
+Instead we will just check in the <code class="highlighter-rouge">update</code> function if the ball rests on the ground and call <code class="highlighter-rouge">dropDown</code> then:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">update</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">playing</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">jumping</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// ...</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// Check if the ball is back on the ground</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">ball</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">bottom</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="nx">physics</span><span class="p">.</span><span class="nx">world</span><span class="p">.</span><span class="nx">bounds</span><span class="p">.</span><span class="nx">bottom</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">dropDown</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><a class="btn btn-danger center" type="button" href="../step_2_solution">
+If you are stuck you can check out the solution here
+</a></p>
+
+        <ul class="pager blog-pager">
+        
+        <li class="previous">
+            <a href="/game-io-workshops/workshops/w2/exercise/step_1" data-toggle="tooltip" data-placement="top" title="Previous step">&larr; Previous Step</a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/game-io-workshops/workshops/w2/exercise/step_3" data-toggle="tooltip" data-placement="top" title="Next step">Next Step &rarr;</a>
+        </li>
+        
+        </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+        <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links"><li><a href="/game-io-workshops/feed.xml" title="RSS"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">RSS</span>
+              </a>
+            </li><li><a href="mailto:theo.dedeken@amal.se" title="Email me"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">Email me</span>
+              </a>
+            </li><li><a href="https://github.com/theodedeken" title="GitHub"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">GitHub</span>
+              </a>
+            </li><li><a href="https://twitter.com/theodedeken" title="Twitter"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">Twitter</span>
+              </a>
+            </li></ul>
+      <p class="copyright text-muted">
+      Theo Dedeken
+      &nbsp;&bull;&nbsp;
+      2020
+
+      
+
+      
+      </p>
+          <!-- Please don't remove this, keep my open source work credited :) -->
+    <p class="theme-by text-muted">
+      Theme by
+      <a href="https://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+    </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+        
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+          document.write('<script src="/game-io-workshops/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/game-io-workshops/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/game-io-workshops/js/main.js"></script>
+    
+  
+
+
+
+
+
+
+
+    </body>
+</html>

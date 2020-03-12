@@ -98,7 +98,8 @@
                     <a class="navlinks-parent" href="javascript:void(0)">Additional resources</a>
                     <div class="navlinks-children">
                         <a href="/game-io-workshops/additional/javascript">Learning Javascript</a>
-                        <a href="https://photonstorm.github.io/phaser3-docs/">Phaser documentation</a>
+                        <a href="/game-io-workshops/additional/documentation">Phaser documentation</a>
+                        <a href="/game-io-workshops/additional/tutorials">Extra tutorials</a>
                         <a href="https://jsfiddle.net/theodedeken/cxz8Ly1p/49/">Phaser quickstart</a>
                     </div>
                 </li>
@@ -242,31 +243,22 @@ Click here to see solution
 <p>Our sprites are now loaded into memory but they do not exist yet in the actual game.
 This is done by the function: <code class="highlighter-rouge">this.add.image(x, y, id);</code> where <code class="highlighter-rouge">id</code> is the same string we used to load our images into memory.</p>
 
-<p>We can easily replace the ball and pillar objects by their respective images.</p>
+<p>We can easily replace the ball and pillar objects by their respective images and move the ball up a bit as the image is bigger than our original circle.
+We will also scale our images up by a factor of 2 by using the <code class="highlighter-rouge">setScale(scale)</code> method of the image to create a pixel art look</p>
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Add the bouncy ball image to the game</span>
-<span class="nx">ball</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">image</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">370</span><span class="p">,</span> <span class="s1">'ball'</span><span class="p">);</span>
+<span class="nx">ball</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">image</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="s1">'ball'</span><span class="p">);</span>
 <span class="c1">// Add the cactus image where we will bounce over</span>
 <span class="nx">pillar</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">image</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">340</span><span class="p">,</span> <span class="s1">'cactus'</span><span class="p">);</span>
-</code></pre></div></div>
-
-<h3 id="pixelart-look">Pixelart look</h3>
-<p>But this doesn’t immediately work with the coordinates we specified earlier.
-Before we fix this we will also scale our images by 2 to make our pixel art images more clear.
-To achieve this we use the method <code class="highlighter-rouge">setScale(scale)</code> on the images with a <code class="highlighter-rouge">scale</code> value of 2.
-We also need to add the <code class="highlighter-rouge">pixelArt = true</code> option to our config so the scaling of the images maintains the crisp edges.
-These coordinates should work better with the scaled images of the ball and pillar:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Create and add the bouncy ball</span>
-<span class="nx">ball</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">image</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="s1">'ball'</span><span class="p">);</span>
-<span class="c1">// Create and add the pillar where we will bounce over</span>
-<span class="nx">pillar</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">image</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="s1">'cactus'</span><span class="p">);</span>
 
 <span class="c1">// scaling the images</span>
 <span class="nx">ball</span><span class="p">.</span><span class="nx">setScale</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 <span class="nx">pillar</span><span class="p">.</span><span class="nx">setScale</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 </code></pre></div></div>
 
-<p>Also don’t forget to add the <code class="highlighter-rouge">pixelArt</code> option to the config like this:</p>
+<h3 id="pixelart-look">Pixelart look</h3>
+<p>But this doesn’t immediately work as the images are being blurred by default.
+We also need to add the <code class="highlighter-rouge">pixelArt = true</code> option to our config so the scaling of the images maintains the crisp edges.</p>
+
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1">// ...</span>
     <span class="c1">// This options turns off blurring when scaling up</span>
@@ -320,6 +312,10 @@ To solve this we will move the speed to a variable and use it in the <code class
 <span class="p">}</span>
 </code></pre></div></div>
 
+<p><a class="btn btn-danger center" type="button" href="../step_1_solution">
+If you are stuck you can check out the solution here
+</a></p>
+
         <ul class="pager blog-pager">
         
         <li class="previous">
@@ -328,7 +324,7 @@ To solve this we will move the speed to a variable and use it in the <code class
         
         
         <li class="next">
-            <a href="/game-io-workshops/workshops/w2/exercise/step_1" data-toggle="tooltip" data-placement="top" title="Next step">Next Step &rarr;</a>
+            <a href="/game-io-workshops/workshops/w2/exercise/step_2" data-toggle="tooltip" data-placement="top" title="Next step">Next Step &rarr;</a>
         </li>
         
         </ul>

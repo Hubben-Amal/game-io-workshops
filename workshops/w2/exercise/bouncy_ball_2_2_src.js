@@ -16,8 +16,20 @@ let config = {
     backgroundColor: 0x6dc4f2,
     // function names for the default engine events
     scene: {
+        preload: preload,
         create: create,
         update: update
+    },
+    // This options turns off blurring when scaling up
+    pixelArt: true,
+    physics: {
+        // use the arcade physics engine
+        default: "arcade",
+        arcade: {
+            // debug option to show velocity lines and 
+            // collision boxes
+            debug: false
+        }
     }
 };
 
@@ -34,6 +46,31 @@ let keylock = false;
 let playing = false;
 // Declare a variable to keep score
 let score = 0;
+// Speed of the game
+let speed = 5;
+
+/**
+ * Preload function 
+ * This function gets executed once before the create function
+ *
+ * Use this function to load all assets (images, music, sounds) into 
+ * memory so you can use them later to build your game scene
+ */
+function preload() {
+    // Load the sprites for our game
+    this.load.image(
+        'ball',
+        'https://hubben-amal.github.io/game-io-workshops/img/bouncy-ball/ball.png'
+    )
+    this.load.image(
+        'ground',
+        'https://hubben-amal.github.io/game-io-workshops/img/bouncy-ball/ground.png'
+    )
+    this.load.image(
+        'cactus',
+        'https://hubben-amal.github.io/game-io-workshops/img/bouncy-ball/cactus.png'
+    )
+}
 
 /**
  * Create function
@@ -42,12 +79,29 @@ let score = 0;
  * Use this function to create and configure all your game elements in the scene
  */
 function create() {
-    // Create and add the bouncy ball
-    ball = this.add.circle(100, 370, 20, 0x931f9c);
+    // Add the bouncy ball physics object to the game
+    ball = this.physics.add.sprite(100, 360, 'ball');
+    // Add the cactus physics object to the game
+    pillar = this.physics.add.sprite(1000, 340, 'cactus');
+    // scaling the images
+    ball.setScale(2);
+    pillar.setScale(2);
+
     // Create and add the ground
-    ground = this.add.rectangle(400, 420, 800, 60, 0x38963c);
-    // Create and add the pillar where we will bounce over
-    pillar = this.add.rectangle(1000, 340, 50, 100, 0xff0000);
+    ground = this.add.tileSprite(400, 410, 400, 32, 'ground');
+    ground.setScale(2);
+
+    // Collision detection
+    this.physics.add.overlap(ball, pillar, gameover, null, this);
+
+    // Add gravity to the ball
+    ball.setGravityY(600);
+    ball.setCollideWorldBounds(true);
+
+    // Setup the bounds for the world
+    this.physics.world.setBounds(0, 0, this.sys.game.config.width, this.sys.game.config.height - 60);
+
+
 
     space = this
         .input
@@ -86,13 +140,16 @@ function update() {
             } else if (space.isUp) {
                 keylock = false;
             }
-        }
-        if (pillar.x == 100 && ball.y == 370) {
-            gameover();
+        } else {
+            // Check if the ball is back on the ground
+            if (ball.body.bottom == this.physics.world.bounds.bottom) {
+                dropDown();
+            }
         }
 
-        // moving pillar towards the ball
-        pillar.setX(pillar.x - 5);
+        // increase the position on the x-axis by half the speed to make 
+        // the ground move in the same direction and speed as the cacti
+        ground.tilePositionX += speed / 2;
 
         // the pillar is past the ball
         if (pillar.x < 0) {
@@ -104,24 +161,23 @@ function update() {
             playing = true;
             // hiding the infotext when playing
             infotext.visible = false;
+            // set the velocity of the pillar
+            // the value is in pixels per second
+            pillar.setVelocityX(-speed * 60);
         }
     }
 }
 
 function jump() {
-    // jump as in teleport the ball up with 150 pixels
-    ball.setPosition(ball.x, ball.y - 150);
+    // set velocity of the ball
+    ball.setVelocityY(-500);
     // set jumping state to true so we can only jump once
     jumping = true;
     // lock our spacebar
     keylock = true
-        // Javascript construct to call a function in the future
-    setTimeout(dropDown, 500);
 }
 
 function dropDown() {
-    // reset the position of the ball
-    ball.setPosition(ball.x, ball.y + 150);
     // after dropping down we can jump again
     jumping = false;
     if (space.isUp) {
@@ -154,4 +210,8 @@ function resetGame() {
     scoretext.text = score;
     // pillar to initial position
     pillar.setPosition(1000, 340);
+    // Set pillar velocity to 0
+    pillar.setVelocityX(0);
+    // Reset player position
+    ball.setPosition(100, 360);
 }
