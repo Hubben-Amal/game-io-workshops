@@ -26,7 +26,8 @@ navbar-links:
     - W2 - Phaser Systems: "workshops/w2/index"
   Additional resources:
     - Learning Javascript: "additional/javascript"
-    - Phaser documentation: "https://photonstorm.github.io/phaser3-docs/"
+    - Phaser documentation: "additional/documentation"
+    - Extra tutorials: "additional/tutorials"
     - Phaser quickstart: "https://jsfiddle.net/theodedeken/cxz8Ly1p/49/"
   Author's home: "https://www.theodedeken.xyz"
 
