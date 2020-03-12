@@ -37,6 +37,31 @@ sections:
             * Help when you are stuck
     - |-
         ## Break
+    - sections:
+        - |-
+            ### Phaser Systems
+        - |-
+            #### Graphics
+            * Load images into the game
+            * Place images into the screen
+            * Manipulate image (scale, rotate)
+        - |-
+            #### Physics
+            * Gravity
+            * Collisions
+            * Drag
+        - |-
+            #### Sound
+            * Load sound and music into the game
+            * Play at a certain point
+        - |- 
+            #### Input
+            * Capturing input from keyboard, mouse, gamepad
+            * Link functions to be executed
+        - |-
+            #### UI
+            * No proper support in Phaser
+            * But can be extended by plugins
     - |-
         ### Exercise
         <iframe src="/game-io-workshops/workshops/w2/bouncy-ball-2" height="450" width="800"></iframe> 
