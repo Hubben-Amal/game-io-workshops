@@ -11,9 +11,9 @@ I have prepared some sounds for you to use:
 
 | Sound     | url                                                                         |
 | --------- | --------------------------------------------------------------------------- |
-| **jump**  | https://hubben-amal-github.io/game-io-workshops/sound/bouncy-ball/jump.wav  |
-| **score** | https://hubben-amal-github.io/game-io-workshops/sound/bouncy-ball/score.wav |
-| **death** | https://hubben-amal-github.io/game-io-workshops/sound/bouncy-ball/death.wav |
+| **jump**  | https://hubben-amal.github.io/game-io-workshops/sound/bouncy-ball/jump.wav  |
+| **score** | https://hubben-amal.github.io/game-io-workshops/sound/bouncy-ball/score.wav |
+| **death** | https://hubben-amal.github.io/game-io-workshops/sound/bouncy-ball/death.wav |
 
 ## Moving clouds in the background
 I prepared one other sprite for this exercise:
