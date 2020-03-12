@@ -206,7 +206,8 @@ To play a sound we use <code class="highlighter-rouge">this.sound.play(key)</cod
 Try adding some clouds in the background using the random functions.
 Then let them move using <code class="highlighter-rouge">setPosition</code> or <code class="highlighter-rouge">setVelocity</code>.
 <strong>Note that for velocity to work the clouds will need to be physics objects.</strong>
-Think about what happens to clouds who go off screen and the spawning of new clouds.</p>
+Think about what happens to clouds who go off screen and the spawning of new clouds.
+Use a lower speed than the ground to create a <a href="https://en.wikipedia.org/wiki/Parallax">parallax</a> effect.</p>
 
 <h2 id="ramping-difficulty">Ramping difficulty</h2>
 <p>Now that we separated the pillar spawning and have grouped them together we are all set to allow for more pillars to exist at the same time.
