@@ -27,6 +27,7 @@ Try adding some clouds in the background using the random functions.
 Then let them move using `setPosition` or `setVelocity`.
 **Note that for velocity to work the clouds will need to be physics objects.**
 Think about what happens to clouds who go off screen and the spawning of new clouds.
+Use a lower speed than the ground to create a [parallax](https://en.wikipedia.org/wiki/Parallax) effect.
 
 ## Ramping difficulty
 Now that we separated the pillar spawning and have grouped them together we are all set to allow for more pillars to exist at the same time.
