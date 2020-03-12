@@ -109,3 +109,7 @@ pillar = game
     .add
     .sprite(Phaser.Math.RND.between(800, 1500), 340, 'cactus');
 ```
+
+<a class="btn btn-danger center" type="button" href="../step_3_solution">
+If you are stuck you can check out the solution here
+</a>

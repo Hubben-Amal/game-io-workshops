@@ -151,3 +151,7 @@ function update(){
     // ...
 }
 ```
+
+<a class="btn btn-danger center" type="button" href="../step_1_solution">
+If you are stuck you can check out the solution here
+</a>

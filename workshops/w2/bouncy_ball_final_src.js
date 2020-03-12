@@ -28,7 +28,7 @@ let config = {
         arcade: {
             // debug option to show velocity lines and 
             // collision boxes
-            debug: true
+            debug: false
         }
     }
 };
