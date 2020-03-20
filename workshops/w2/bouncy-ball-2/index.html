@@ -1,16 +1,597 @@
 <!DOCTYPE html>
 <html lang="en">
+    <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+    <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover" name="viewport">
 
-<head>
-    <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
+    <title>
+         Bouncy Ball 2 
+    </title>
+
+    <meta name="author" content="Theo Dedeken" /> 
+
+    <link rel="alternate" type="application/rss+xml" title="Game I/O - Game development workshops" href="hubben-amal.github.io/game-io-workshops/feed.xml" /> 
+ 
+ 
+   
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+    
+    <link rel="stylesheet" href="/game-io-workshops/css/bootstrap.min.css" /> 
+    <link rel="stylesheet" href="/game-io-workshops/css/bootstrap-social.css" /> 
+    <link rel="stylesheet" href="/game-io-workshops/css/main.css" />    
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" /> 
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" />     
+
+    <!-- Facebook OpenGraph tags -->
+     
+    <meta property="og:title" content="Bouncy Ball 2" />  
+    <meta property="og:description" content="Try to keep jumping over the endless stream of cacti. ## Controls * **Spacebar**: Jump in the air * **Arrow key down**: Slam the ball back to the ground * **Arrow key left**: Move the ball to the left of the screen * **Arrow key right**: Move the ball to..."> 
+
+
+    <meta content="website" property="og:type" /> 
+    <meta property="og:url" content="hubben-amal.github.io/game-io-workshops/workshops/w2/bouncy-ball-2/" />
+    <link rel="canonical" href="hubben-amal.github.io/game-io-workshops/workshops/w2/bouncy-ball-2/" />  
+    <meta property="og:image" content="hubben-amal.github.io/game-io-workshops/img/game-io-logo.png" /> 
+
+
+    <!-- Twitter summary cards -->
+    <meta content="summary" name="twitter:card" />
+    <meta content="@" name="twitter:site" />
+    <meta content="@" name="twitter:creator" /> 
+    <meta name="twitter:title" content="Bouncy Ball 2" />  
+    <meta name="twitter:description" content="Try to keep jumping over the endless stream of cacti. ## Controls * **Spacebar**: Jump in the air * **Arrow key down**: Slam the ball back to the ground * **Arrow key left**: Move the ball to the left of the screen * **Arrow key right**: Move the ball to...">  
+    <meta name="twitter:image" content="hubben-amal.github.io/game-io-workshops/img/game-io-logo.png" />   
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href=/game-io-workshops/apple-icon-57x57.png ">
+    <link rel="apple-touch-icon " sizes="60x60 " href=/game-io-workshops/apple-icon-60x60.png ">
+    <link rel="apple-touch-icon" sizes="72x72" href=/game-io-workshops/apple-icon-72x72.png ">
+    <link rel="apple-touch-icon " sizes="76x76 " href=/game-io-workshops/apple-icon-76x76.png ">
+    <link rel="apple-touch-icon" sizes="114x114" href=/game-io-workshops/apple-icon-114x114.png ">
+    <link rel="apple-touch-icon " sizes="120x120 " href=/game-io-workshops/apple-icon-120x120.png ">
+    <link rel="apple-touch-icon" sizes="144x144" href=/game-io-workshops/apple-icon-144x144.png ">
+    <link rel="apple-touch-icon " sizes="152x152 " href=/game-io-workshops/apple-icon-152x152.png ">
+    <link rel="apple-touch-icon" sizes="180x180" href=/game-io-workshops/apple-icon-180x180.png ">
+    <link rel="icon " type="image/png " sizes="192x192 " href=/game-io-workshops/android-icon-192x192.png ">
+    <link rel="icon" type="image/png" sizes="32x32" href=/game-io-workshops/favicon-32x32.png ">
+    <link rel="icon " type="image/png " sizes="96x96 " href=/game-io-workshops/favicon-96x96.png ">
+    <link rel="icon" type="image/png" sizes="16x16" href=/game-io-workshops/favicon-16x16.png ">
+    <link rel="manifest " href=/game-io-workshops/manifest.json ">
+    <meta content="#ffffff" name="msapplication-TileColor">
+    <meta name="msapplication-TileImage" content=/game-io-workshops/ms-icon-144x144.png ">
+    <meta content="#ffffff " name="theme-color ">
+
 </head>
 
-<body>
-    <script src="/game-io-workshops/workshops/w2/bouncy-ball-2.js">
-    </script>
+    <body>
+
+        
+
+
+        <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-target="#main-navbar" data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button><a class="navbar-brand" href="/game-io-workshops/">Game I/O</a></div>
+
+        <div class="collapse navbar-collapse" id="main-navbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/game-io-workshops/schedule">Schedule</a>
+                </li>
+                <li class="navlinks-container">
+                    <a class="navlinks-parent" href="javascript:void(0)">Workshops</a>
+                    <div class="navlinks-children">
+                        <a href="/game-io-workshops/workshops/w1/index">W1 - Basics</a>
+                        <a href="/game-io-workshops/workshops/w2/index">W2 - Phaser Systems</a>
+                    </div>
+                </li>
+                
+                <li class="navlinks-container">
+                    <a class="navlinks-parent" href="javascript:void(0)">Additional resources</a>
+                    <div class="navlinks-children">
+                        <a href="/game-io-workshops/additional/javascript">Learning Javascript</a>
+                        <a href="/game-io-workshops/additional/documentation">Phaser documentation</a>
+                        <a href="/game-io-workshops/additional/tutorials">Extra tutorials</a>
+                        <a href="https://jsfiddle.net/theodedeken/cxz8Ly1p/49/">Phaser quickstart</a>
+                    </div>
+                </li>
+                
+                <li>
+                    <a href="https://www.theodedeken.xyz">Author's home</a>
+                </li></ul>
+        </div>
+
+        
+        <div class="avatar-container">
+            <div class="avatar-img-border">
+                <a href="/game-io-workshops/">
+                    <img class="avatar-img" src="/game-io-workshops/img/game-io-logo.png" />
+                </a>
+            </div>
+        </div>
+        
+
+    </div>
+</nav>
+
+        <head>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
+</head>
+<!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-heading">
+          <h1>Bouncy Ball 2</h1>
+		  
+		  
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class="container" role="main">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <script src="/game-io-workshops/workshops/w2/bouncy-ball-2.js"></script>
+             <div id="game-area" width=800 height=450></div>
+            <p>Try to keep jumping over the endless stream of cacti.</p>
+<h2 id="controls">Controls</h2>
+<ul>
+  <li><strong>Spacebar</strong>: Jump in the air</li>
+  <li><strong>Arrow key down</strong>: Slam the ball back to the ground</li>
+  <li><strong>Arrow key left</strong>: Move the ball to the left of the screen</li>
+  <li><strong>Arrow key right</strong>: Move the ball to the right of the screen</li>
+</ul>
+
+<!-- Collapse buttons -->
+<p><button class="btn btn-warning" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+Click here to see source, try to figure things out on your own first!
+</button>
+<!-- / Collapse buttons --></p>
+
+<!-- Collapsible element -->
+<div class="collapse" id="collapseExample">
     
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * WARNING: TRY TO FIGURE THE EXERCISES OUT ON YOUR OWN!
+ * ONLY USE MY SOURCE CODE AS A LAST RESORT, GOOD LUCK!
+ */</span>
+
+<span class="c1">// Configuration for the game</span>
+<span class="c1">// Other options that can be set in this config:</span>
+<span class="c1">// https://photonstorm.github.io/phaser3-docs/Phaser.Core.Config.html</span>
+<span class="kd">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">type</span><span class="p">:</span> <span class="nx">Phaser</span><span class="p">.</span><span class="nx">AUTO</span><span class="p">,</span>
+    <span class="c1">// width of the game</span>
+    <span class="na">width</span><span class="p">:</span> <span class="mi">800</span><span class="p">,</span>
+    <span class="c1">// height of the game</span>
+    <span class="na">height</span><span class="p">:</span> <span class="mi">450</span><span class="p">,</span>
+    <span class="c1">// the html id of the parent object, </span>
+    <span class="c1">// useful to specify where in a webpage the game will be</span>
+    <span class="na">parent</span><span class="p">:</span> <span class="s1">'game-area'</span><span class="p">,</span>
+    <span class="c1">// background color of the game</span>
+    <span class="na">backgroundColor</span><span class="p">:</span> <span class="mh">0x6dc4f2</span><span class="p">,</span>
+    <span class="c1">// function names for the default engine events</span>
+    <span class="na">scene</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">preload</span><span class="p">:</span> <span class="nx">preload</span><span class="p">,</span>
+        <span class="na">create</span><span class="p">:</span> <span class="nx">create</span><span class="p">,</span>
+        <span class="na">update</span><span class="p">:</span> <span class="nx">update</span>
+    <span class="p">},</span>
+    <span class="c1">// This options turns off blurring when scaling up</span>
+    <span class="na">pixelArt</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="na">physics</span><span class="p">:</span> <span class="p">{</span>
+        <span class="c1">// use the arcade physics engine</span>
+        <span class="na">default</span><span class="p">:</span> <span class="s1">'arcade'</span><span class="p">,</span>
+        <span class="na">arcade</span><span class="p">:</span> <span class="p">{</span>
+            <span class="c1">// debug option to show velocity lines and</span>
+            <span class="c1">// collision boxes</span>
+            <span class="na">debug</span><span class="p">:</span> <span class="kc">false</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// Create a new Phaser Game</span>
+<span class="kd">const</span> <span class="nx">game</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Phaser</span><span class="p">.</span><span class="nx">Game</span><span class="p">(</span><span class="nx">config</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">scene</span><span class="p">;</span>
+
+<span class="c1">// Objects in the game</span>
+<span class="kd">let</span> <span class="nx">ball</span><span class="p">,</span> <span class="nx">ground</span><span class="p">;</span>
+<span class="c1">// UI elements</span>
+<span class="kd">let</span> <span class="nx">scoretext</span><span class="p">,</span> <span class="nx">infotext</span><span class="p">;</span>
+<span class="c1">// groups</span>
+<span class="kd">let</span> <span class="nx">clouds</span><span class="p">,</span> <span class="nx">pillars</span><span class="p">;</span>
+<span class="c1">// Input objects</span>
+<span class="kd">let</span> <span class="nx">left</span><span class="p">,</span> <span class="nx">right</span><span class="p">;</span>
+
+<span class="kd">let</span> <span class="nx">jumping</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">playing</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="c1">// Declare a variable to keep score</span>
+<span class="kd">let</span> <span class="nx">score</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="c1">// Speed of the game</span>
+<span class="kd">let</span> <span class="nx">speed</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="c1">// Current rotation of the ball</span>
+<span class="kd">let</span> <span class="nx">rotation</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="c1">// amount of updates before we level up</span>
+<span class="kd">const</span> <span class="nx">levelThreshold</span> <span class="o">=</span> <span class="mi">1200</span><span class="p">;</span>
+<span class="c1">// update counter</span>
+<span class="kd">let</span> <span class="nx">upd</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="c1">// add a new pillar next levelup</span>
+<span class="kd">let</span> <span class="nx">pillarspawn</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="c1">// Async pointer to cloud spawning</span>
+<span class="kd">let</span> <span class="nx">spawner</span><span class="p">;</span>
+
+<span class="cm">/**
+ * Preload function
+ * This function gets executed once before the create function
+ *
+ * Use this function to load all assets (images, music, sounds) into
+ * memory so you can use them later to build your game scene
+ */</span>
+<span class="kd">function</span> <span class="nx">preload</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Load the sprites for our game</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">load</span><span class="p">.</span><span class="nx">image</span><span class="p">(</span>
+        <span class="s1">'ball'</span><span class="p">,</span>
+        <span class="s1">'https://hubben-amal.github.io/game-io-workshops/img/bouncy-ball/ball.png'</span>
+    <span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">load</span><span class="p">.</span><span class="nx">image</span><span class="p">(</span>
+        <span class="s1">'ground'</span><span class="p">,</span>
+        <span class="s1">'https://hubben-amal.github.io/game-io-workshops/img/bouncy-ball/ground.png'</span>
+    <span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">load</span><span class="p">.</span><span class="nx">image</span><span class="p">(</span>
+        <span class="s1">'cactus'</span><span class="p">,</span>
+        <span class="s1">'https://hubben-amal.github.io/game-io-workshops/img/bouncy-ball/cactus.png'</span>
+    <span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">load</span><span class="p">.</span><span class="nx">image</span><span class="p">(</span>
+        <span class="s1">'cloud'</span><span class="p">,</span>
+        <span class="s1">'https://hubben-amal.github.io/game-io-workshops/img/bouncy-ball/cloud.png'</span>
+    <span class="p">);</span>
+    <span class="c1">// Load the audio for the effects</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">load</span><span class="p">.</span><span class="nx">audio</span><span class="p">(</span><span class="s1">'jump'</span><span class="p">,</span> <span class="s1">'https://hubben-amal.github.io/game-io-workshops/sound/bouncy-ball/jump.wav'</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">load</span><span class="p">.</span><span class="nx">audio</span><span class="p">(</span><span class="s1">'score'</span><span class="p">,</span> <span class="s1">'https://hubben-amal.github.io/game-io-workshops/sound/bouncy-ball/score.wav'</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">load</span><span class="p">.</span><span class="nx">audio</span><span class="p">(</span><span class="s1">'death'</span><span class="p">,</span> <span class="s1">'https://hubben-amal.github.io/game-io-workshops/sound/bouncy-ball/death.wav'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cm">/**
+ * Create function
+ * This function gets executed once after the preload and creates the game scene
+ *
+ * Use this function to create and configure all your game elements in the scene
+ */</span>
+<span class="kd">function</span> <span class="nx">create</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Add the bouncy ball physics object to the game</span>
+    <span class="nx">ball</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">physics</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">sprite</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">380</span><span class="p">,</span> <span class="s1">'ball'</span><span class="p">);</span>
+    <span class="c1">// scaling the ball</span>
+    <span class="nx">ball</span><span class="p">.</span><span class="nx">setScale</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="c1">// Add gravity to the ball</span>
+    <span class="nx">ball</span><span class="p">.</span><span class="nx">setGravityY</span><span class="p">(</span><span class="mi">600</span><span class="p">);</span>
+    <span class="nx">ball</span><span class="p">.</span><span class="nx">setCollideWorldBounds</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="nx">ball</span><span class="p">.</span><span class="nx">setDragX</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+
+    <span class="c1">// Create and add the ground</span>
+    <span class="nx">ground</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">tileSprite</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">418</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="s1">'ground'</span><span class="p">);</span>
+    <span class="nx">ground</span><span class="p">.</span><span class="nx">setScale</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="c1">// Move more to front</span>
+    <span class="nx">ground</span><span class="p">.</span><span class="nx">setDepth</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+    <span class="c1">// create a physics group for pillars and clouds</span>
+    <span class="nx">pillars</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">physics</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">group</span><span class="p">();</span>
+    <span class="nx">clouds</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">physics</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">group</span><span class="p">();</span>
+    <span class="c1">// Collision detection</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">physics</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">overlap</span><span class="p">(</span><span class="nx">ball</span><span class="p">,</span> <span class="nx">pillars</span><span class="p">,</span> <span class="nx">gameover</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+    <span class="c1">// Setup the bounds for the world</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">physics</span><span class="p">.</span><span class="nx">world</span><span class="p">.</span><span class="nx">setBounds</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">sys</span><span class="p">.</span><span class="nx">game</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">sys</span><span class="p">.</span><span class="nx">game</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">height</span> <span class="o">-</span> <span class="mi">50</span><span class="p">);</span>
+
+    <span class="c1">// Setup inputs</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">keyboard</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'keydown_SPACE'</span><span class="p">,</span> <span class="nx">handleSpace</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">keyboard</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'keydown_DOWN'</span><span class="p">,</span> <span class="nx">slam</span><span class="p">);</span>
+    <span class="c1">// we add the keys as well so the default functions of scrolling the page are disabled</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">keyboard</span><span class="p">.</span><span class="nx">addKey</span><span class="p">(</span><span class="s1">'SPACE'</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">keyboard</span><span class="p">.</span><span class="nx">addKey</span><span class="p">(</span><span class="s1">'DOWN'</span><span class="p">);</span>
+
+    <span class="nx">left</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">keyboard</span><span class="p">.</span><span class="nx">addKey</span><span class="p">(</span><span class="s1">'LEFT'</span><span class="p">);</span>
+    <span class="nx">right</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">keyboard</span><span class="p">.</span><span class="nx">addKey</span><span class="p">(</span><span class="s1">'RIGHT'</span><span class="p">);</span>
+
+    <span class="c1">// displaying score</span>
+    <span class="nx">scoretext</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="nx">score</span><span class="p">,</span> <span class="p">{</span>
+        <span class="na">fontFamily</span><span class="p">:</span> <span class="s1">'"Arial"'</span><span class="p">,</span>
+        <span class="na">fontSize</span><span class="p">:</span> <span class="s1">'50pt'</span><span class="p">,</span>
+        <span class="na">color</span><span class="p">:</span> <span class="s1">'#000000'</span>
+    <span class="p">});</span>
+    <span class="nx">scoretext</span><span class="p">.</span><span class="nx">setDepth</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+    <span class="c1">// displaying info at the start of the game</span>
+    <span class="nx">infotext</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="s1">'Press space to start game'</span><span class="p">,</span> <span class="p">{</span>
+        <span class="na">fontFamily</span><span class="p">:</span> <span class="s1">'"Arial"'</span><span class="p">,</span>
+        <span class="na">fontSize</span><span class="p">:</span> <span class="s1">'20pt'</span>
+    <span class="p">});</span>
+    <span class="nx">infotext</span><span class="p">.</span><span class="nx">setDepth</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+
+    <span class="nx">scene</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/**
+ * Spawn method for clouds in the sky
+ */</span>
+<span class="kd">function</span> <span class="nx">cloudspawn</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Create a new cloud</span>
+    <span class="kd">const</span> <span class="nx">cl</span> <span class="o">=</span> <span class="nx">scene</span><span class="p">.</span><span class="nx">physics</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">sprite</span><span class="p">(</span><span class="mi">900</span><span class="p">,</span> <span class="nx">Phaser</span><span class="p">.</span><span class="nb">Math</span><span class="p">.</span><span class="nx">RND</span><span class="p">.</span><span class="nx">between</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span> <span class="s1">'cloud'</span><span class="p">);</span>
+    <span class="nx">cl</span><span class="p">.</span><span class="nx">setScale</span><span class="p">(</span><span class="nx">Phaser</span><span class="p">.</span><span class="nb">Math</span><span class="p">.</span><span class="nx">RND</span><span class="p">.</span><span class="nx">between</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">));</span>
+    <span class="c1">// Add to a group</span>
+    <span class="nx">clouds</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">cl</span><span class="p">);</span>
+    <span class="c1">// Random depth and speed</span>
+    <span class="kd">const</span> <span class="nx">depth</span> <span class="o">=</span> <span class="nx">Phaser</span><span class="p">.</span><span class="nb">Math</span><span class="p">.</span><span class="nx">RND</span><span class="p">.</span><span class="nx">between</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+    <span class="nx">cl</span><span class="p">.</span><span class="nx">setVelocityX</span><span class="p">(</span><span class="o">-</span><span class="nx">speed</span> <span class="o">*</span> <span class="p">(</span><span class="nx">depth</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">16</span><span class="p">));</span>
+    <span class="nx">cl</span><span class="p">.</span><span class="nx">setDepth</span><span class="p">(</span><span class="nx">depth</span><span class="p">);</span>
+    <span class="c1">// Spawn a new cloud inbetween 1 to 2.5 seconds</span>
+    <span class="nx">spawner</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">cloudspawn</span><span class="p">,</span> <span class="nx">Phaser</span><span class="p">.</span><span class="nb">Math</span><span class="p">.</span><span class="nx">RND</span><span class="p">.</span><span class="nx">between</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">2500</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="cm">/**
+ * Spawn method for pillars
+ */</span>
+<span class="kd">function</span> <span class="nx">createPillar</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Add a new physics object to the game</span>
+    <span class="kd">const</span> <span class="nx">pillar</span> <span class="o">=</span> <span class="nx">scene</span>
+        <span class="p">.</span><span class="nx">physics</span>
+        <span class="p">.</span><span class="nx">add</span>
+        <span class="p">.</span><span class="nx">sprite</span><span class="p">(</span><span class="nx">Phaser</span><span class="p">.</span><span class="nb">Math</span><span class="p">.</span><span class="nx">RND</span><span class="p">.</span><span class="nx">between</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">1500</span><span class="p">),</span> <span class="mi">350</span><span class="p">,</span> <span class="s1">'cactus'</span><span class="p">);</span>
+    <span class="nx">pillar</span><span class="p">.</span><span class="nx">setScale</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="c1">// Add it to the pillar group</span>
+    <span class="nx">pillars</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">pillar</span><span class="p">);</span>
+    <span class="c1">// Set the velocity</span>
+    <span class="nx">pillar</span><span class="p">.</span><span class="nx">setVelocityX</span><span class="p">(</span><span class="o">-</span><span class="nx">speed</span> <span class="o">*</span> <span class="mi">60</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cm">/**
+ * Function that is called each time the spacebar is pressed
+ */</span>
+<span class="kd">function</span> <span class="nx">handleSpace</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">playing</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">jumping</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">scene</span><span class="p">.</span><span class="nx">sound</span><span class="p">.</span><span class="nx">play</span><span class="p">(</span><span class="s1">'jump'</span><span class="p">);</span>
+            <span class="nx">jump</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">playing</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="c1">// hiding the infotext when playing</span>
+        <span class="nx">infotext</span><span class="p">.</span><span class="nx">visible</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="c1">// create a pillar when we start the game</span>
+        <span class="nx">createPillar</span><span class="p">();</span>
+        <span class="c1">// start spawning clouds</span>
+        <span class="nx">cloudspawn</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/**
+ * Function that slams the ball back to the ground
+ */</span>
+<span class="kd">function</span> <span class="nx">slam</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">ball</span><span class="p">.</span><span class="nx">setVelocityY</span><span class="p">(</span><span class="mi">800</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cm">/**
+ * Move the ball to the right
+ */</span>
+<span class="kd">function</span> <span class="nx">moveRight</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">ball</span><span class="p">.</span><span class="nx">setVelocityX</span><span class="p">(</span><span class="nx">ball</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">velocity</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="mi">5</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cm">/**
+ * Move the ball to the left
+ */</span>
+<span class="kd">function</span> <span class="nx">moveLeft</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">ball</span><span class="p">.</span><span class="nx">setVelocityX</span><span class="p">(</span><span class="nx">ball</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">velocity</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="mi">5</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cm">/**
+ * Main update loop
+ * The code in this function gets executed on every game update (default 60 times per second)
+ *
+ * Use this function for all elements that change overtime
+ */</span>
+<span class="kd">function</span> <span class="nx">update</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">playing</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">upd</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">upd</span> <span class="o">%</span> <span class="nx">levelThreshold</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Leveling up</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">pillarspawn</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">createPillar</span><span class="p">();</span>
+            <span class="p">}</span>
+            <span class="c1">// One extra pillar will be spawned for each two levelups</span>
+            <span class="nx">pillarspawn</span> <span class="o">=</span> <span class="o">!</span><span class="nx">pillarspawn</span><span class="p">;</span>
+            <span class="c1">// increase the speed</span>
+            <span class="nx">speed</span> <span class="o">+=</span> <span class="mf">0.5</span><span class="p">;</span>
+            <span class="nx">pillars</span><span class="p">.</span><span class="nx">children</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">pillar</span> <span class="o">=&gt;</span> <span class="nx">pillar</span><span class="p">.</span><span class="nx">setVelocityX</span><span class="p">(</span><span class="o">-</span><span class="nx">speed</span> <span class="o">*</span> <span class="mi">60</span><span class="p">));</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">left</span><span class="p">.</span><span class="nx">isDown</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">moveLeft</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">right</span><span class="p">.</span><span class="nx">isDown</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">moveRight</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="c1">// Calculate the rotation of the ball using the speed of the ground and the ball</span>
+        <span class="nx">rotation</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="nx">speed</span> <span class="o">+</span> <span class="nx">ball</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">velocity</span><span class="p">.</span><span class="nx">x</span> <span class="o">/</span> <span class="mi">60</span><span class="p">)</span> <span class="o">/</span> <span class="mi">64</span><span class="p">;</span>
+        <span class="nx">ball</span><span class="p">.</span><span class="nx">setRotation</span><span class="p">(</span><span class="nx">rotation</span><span class="p">);</span>
+
+        <span class="c1">// Check if the ball is back on the ground</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">ball</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">bottom</span> <span class="o">===</span> <span class="k">this</span><span class="p">.</span><span class="nx">physics</span><span class="p">.</span><span class="nx">world</span><span class="p">.</span><span class="nx">bounds</span><span class="p">.</span><span class="nx">bottom</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">jumping</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// increase the position on the x-axis by half the speed to make</span>
+        <span class="c1">// the ground move in the same direction and speed as the cacti</span>
+        <span class="nx">ground</span><span class="p">.</span><span class="nx">tilePositionX</span> <span class="o">+=</span> <span class="nx">speed</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+
+        <span class="nx">pillars</span><span class="p">.</span><span class="nx">children</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">pillar</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="c1">// if the pillar is off the screen</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">pillar</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">right</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// Score a point</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">sound</span><span class="p">.</span><span class="nx">play</span><span class="p">(</span><span class="s1">'score'</span><span class="p">);</span>
+                <span class="nx">scoreOnePoint</span><span class="p">();</span>
+                <span class="c1">// destroy the pillar that is outside of the screen</span>
+                <span class="nx">pillar</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">jump</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// set velocity of the ball</span>
+    <span class="nx">ball</span><span class="p">.</span><span class="nx">setVelocityY</span><span class="p">(</span><span class="o">-</span><span class="mi">500</span><span class="p">);</span>
+    <span class="c1">// set jumping state to true so we can only jump once</span>
+    <span class="nx">jumping</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">scoreOnePoint</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// create a new pillar</span>
+    <span class="nx">createPillar</span><span class="p">();</span>
+    <span class="c1">// Adding a point to the score</span>
+    <span class="nx">score</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="c1">// update score text</span>
+    <span class="nx">scoretext</span><span class="p">.</span><span class="nx">text</span> <span class="o">=</span> <span class="nx">score</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">gameover</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">sound</span><span class="p">.</span><span class="nx">play</span><span class="p">(</span><span class="s1">'death'</span><span class="p">);</span>
+    <span class="c1">// Game is over, so we are not playing</span>
+    <span class="nx">playing</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="c1">// Display the final score</span>
+    <span class="nx">infotext</span><span class="p">.</span><span class="nx">text</span> <span class="o">=</span> <span class="s1">'Final score '</span> <span class="o">+</span> <span class="nx">score</span> <span class="o">+</span> <span class="s1">', press space to start a new game'</span><span class="p">;</span>
+    <span class="nx">infotext</span><span class="p">.</span><span class="nx">visible</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="c1">// reset the game</span>
+    <span class="nx">resetGame</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">resetGame</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Update counter back to one</span>
+    <span class="nx">upd</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="c1">// score back to zero</span>
+    <span class="nx">score</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="c1">// reset speed</span>
+    <span class="nx">speed</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="nx">scoretext</span><span class="p">.</span><span class="nx">text</span> <span class="o">=</span> <span class="nx">score</span><span class="p">;</span>
+    <span class="c1">// Clear the pillars</span>
+    <span class="nx">pillars</span><span class="p">.</span><span class="nx">children</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">pillar</span> <span class="o">=&gt;</span> <span class="nx">pillar</span><span class="p">.</span><span class="nx">destroy</span><span class="p">());</span>
+    <span class="nx">pillars</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+    <span class="c1">// Stop the Clouds</span>
+    <span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">spawner</span><span class="p">);</span>
+    <span class="nx">clouds</span><span class="p">.</span><span class="nx">children</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">cloud</span> <span class="o">=&gt;</span> <span class="nx">cloud</span><span class="p">.</span><span class="nx">destroy</span><span class="p">());</span>
+    <span class="nx">clouds</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+    <span class="c1">// Reset player position</span>
+    <span class="nx">ball</span><span class="p">.</span><span class="nx">setPosition</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">360</span><span class="p">);</span>
+    <span class="nx">ball</span><span class="p">.</span><span class="nx">setVelocity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="nx">ball</span><span class="p">.</span><span class="nx">setRotation</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="nx">rotation</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+</div>
+
+        </div>
+    </div>
+</div>
+
+        <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links"><li><a href="/game-io-workshops/feed.xml" title="RSS"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">RSS</span>
+              </a>
+            </li><li><a href="mailto:theo.dedeken@amal.se" title="Email me"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">Email me</span>
+              </a>
+            </li><li><a href="https://github.com/theodedeken" title="GitHub"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">GitHub</span>
+              </a>
+            </li><li><a href="https://twitter.com/theodedeken" title="Twitter"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">Twitter</span>
+              </a>
+            </li></ul>
+      <p class="copyright text-muted">
+      Theo Dedeken
+      &nbsp;&bull;&nbsp;
+      2020
+
+      
+
+      
+      </p>
+          <!-- Please don't remove this, keep my open source work credited :) -->
+    <p class="theme-by text-muted">
+      Theme by
+      <a href="https://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+    </p>
+      </div>
+    </div>
+  </div>
+</footer>
 
 
-</body>
+        
 
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+          document.write('<script src="/game-io-workshops/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/game-io-workshops/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/game-io-workshops/js/main.js"></script>
+    
+  
+
+
+
+
+
+
+
+    </body>
 </html>

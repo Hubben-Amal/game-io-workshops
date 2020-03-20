@@ -218,6 +218,44 @@ Think about how to spawn more and more pillars closer together over time.</p>
 We can use this to make our ball roll over the ground.
 If you remember your circle mathematics you should be able to derive the rotation speed from the speed of the ground.</p>
 
+<h2 id="more-controls">More controls</h2>
+<p>There is a better way to handle the input of a key if you want to perform a single action when it is pressed:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">keyboard</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'keydown_&lt;key&gt;'</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">keyboard</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'keyup_&lt;key&gt;'</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Where you replace <code class="highlighter-rouge">&lt;key&gt;</code> with the key you want to handle, some examples:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>key</th>
+      <th><code class="highlighter-rouge">&lt;key&gt;</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>spacebar</td>
+      <td><code class="highlighter-rouge">SPACE</code></td>
+    </tr>
+    <tr>
+      <td>arrow keys</td>
+      <td><code class="highlighter-rouge">LEFT</code>, <code class="highlighter-rouge">RIGHT</code>, <code class="highlighter-rouge">UP</code> or <code class="highlighter-rouge">DOWN</code></td>
+    </tr>
+    <tr>
+      <td>Other keys</td>
+      <td><code class="highlighter-rouge">A</code> - <code class="highlighter-rouge">Z</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>and <code class="highlighter-rouge">callback</code> is the name of the function you want to call once the key is down or up.</p>
+
+<p><a class="btn btn-danger center" type="button" href="../../bouncy-ball-2">
+See an example of what is possible!
+</a></p>
+
         <ul class="pager blog-pager">
         
         <li class="previous">
