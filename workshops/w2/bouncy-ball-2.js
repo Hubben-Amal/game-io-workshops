@@ -10,9 +10,10 @@ const config = {
     type: Phaser.AUTO,
     // width of the game
     width: 800,
-    // height fo the game
+    // height of the game
     height: 450,
-    // the id of the parent canvas object
+    // the html id of the parent object, 
+    // useful to specify where in a webpage the game will be
     parent: 'game-area',
     // background color of the game
     backgroundColor: 0x6dc4f2,

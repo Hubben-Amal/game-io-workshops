@@ -38,6 +38,24 @@ An image can be rotated via its methods `setAngle(degrees)` or `setRotation(radi
 We can use this to make our ball roll over the ground.
 If you remember your circle mathematics you should be able to derive the rotation speed from the speed of the ground.
 
+## More controls
+There is a better way to handle the input of a key if you want to perform a single action when it is pressed:
+
+```javascript
+this.input.keyboard.on('keydown_<key>', callback);
+this.input.keyboard.on('keyup_<key>', callback);
+```
+
+Where you replace `<key>` with the key you want to handle, some examples:
+
+| key        | `<key>`                         |
+| ---------- | ------------------------------- |
+| spacebar   | `SPACE`                         |
+| arrow keys | `LEFT`, `RIGHT`, `UP` or `DOWN` |
+| Other keys | `A` - `Z`                       |
+
+and `callback` is the name of the function you want to call once the key is down or up.
+
 
 <a class="btn btn-danger center" type="button" href="../../bouncy-ball-2">
 See an example of what is possible!
