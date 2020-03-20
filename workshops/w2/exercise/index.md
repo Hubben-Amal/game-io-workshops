@@ -4,7 +4,7 @@ title: Bouncy Ball v2
 subtitle: Introduction to Phaser systems by improving Bouncy Ball
 next: workshops/w2/exercise/step_1
 ---
-<iframe src="{{ "workshops/w2/bouncy-ball-2" | relative_url }}" height="450" width="800" frameBorder="0"></iframe>
+<iframe src="{{ "workshops/w2/exercise/bouncy-ball-2-3" | relative_url }}" height="450" width="800" frameBorder="0"></iframe>
 
 In this exercise we will improve the basic game we made in the previous exercise and add:
 * Sprites

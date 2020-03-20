@@ -1,0 +1,18 @@
+---
+layout: base
+---
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
+</head>
+{% include header.html type="page" %}
+
+<div class="container" role="main">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <script src="{{ page.src | relative_url }}"></script>
+             <div id="game-area" width={{ page.width }} height={{ page.height }}></div>
+            {{ content }}
+        </div>
+    </div>
+</div>

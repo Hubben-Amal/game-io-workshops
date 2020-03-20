@@ -37,3 +37,8 @@ Think about how to spawn more and more pillars closer together over time.
 An image can be rotated via its methods `setAngle(degrees)` or `setRotation(radians)`.
 We can use this to make our ball roll over the ground.
 If you remember your circle mathematics you should be able to derive the rotation speed from the speed of the ground.
+
+
+<a class="btn btn-danger center" type="button" href="../../bouncy-ball-2">
+See an example of what is possible!
+</a>
