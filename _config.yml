@@ -28,7 +28,7 @@ navbar-links:
     - Learning Javascript: "additional/javascript"
     - Phaser documentation: "additional/documentation"
     - Extra tutorials: "additional/tutorials"
-    - Phaser quickstart: "https://jsfiddle.net/theodedeken/cxz8Ly1p/49/"
+    - Phaser quickstart: "additional/quickstart"
     - Programming games: "additional/games"
   Author's home: "https://www.theodedeken.xyz"
 
