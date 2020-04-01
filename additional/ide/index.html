@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover" name="viewport">
 
     <title>
-         What's next? 
+         Setting up an IDE 
     </title>
 
     <meta name="author" content="Theo Dedeken" /> 
@@ -27,13 +27,13 @@
 
     <!-- Facebook OpenGraph tags -->
      
-    <meta property="og:title" content="What's next?" />  
-    <meta property="og:description" content="## Sounds Loading sounds into the game is similar to the loading of images, we use the function `this.load.audio(key, url)` to load sounds into the game. To play a sound we use `this.sound.play(key)`. I have prepared some sounds for you to use: | Sound | url | | --------- |..."> 
+    <meta property="og:title" content="Setting up an IDE" />  
+    <meta property="og:description" content=""> 
 
 
     <meta content="website" property="og:type" /> 
-    <meta property="og:url" content="hubben-amal.github.io/game-io-workshops/workshops/w2/exercise/step_4/" />
-    <link rel="canonical" href="hubben-amal.github.io/game-io-workshops/workshops/w2/exercise/step_4/" />  
+    <meta property="og:url" content="hubben-amal.github.io/game-io-workshops/additional/ide/" />
+    <link rel="canonical" href="hubben-amal.github.io/game-io-workshops/additional/ide/" />  
     <meta property="og:image" content="hubben-amal.github.io/game-io-workshops/img/game-io-logo.png" /> 
 
 
@@ -41,8 +41,8 @@
     <meta content="summary" name="twitter:card" />
     <meta content="@" name="twitter:site" />
     <meta content="@" name="twitter:creator" /> 
-    <meta name="twitter:title" content="What's next?" />  
-    <meta name="twitter:description" content="## Sounds Loading sounds into the game is similar to the loading of images, we use the function `this.load.audio(key, url)` to load sounds into the game. To play a sound we use `this.sound.play(key)`. I have prepared some sounds for you to use: | Sound | url | | --------- |...">  
+    <meta name="twitter:title" content="Setting up an IDE" />  
+    <meta name="twitter:description" content="">  
     <meta name="twitter:image" content="hubben-amal.github.io/game-io-workshops/img/game-io-logo.png" />   
 
     <!-- Favicon -->
@@ -136,7 +136,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-heading">
-          <h1>What's next?</h1>
+          <h1>Setting up an IDE</h1>
 		  
 		  
 		  
@@ -154,122 +154,12 @@
 <div class="container" role="main">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <h2 id="sounds">Sounds</h2>
-<p>Loading sounds into the game is similar to the loading of images, we use the function <code class="highlighter-rouge">this.load.audio(key, url)</code> to load sounds into the game.
-To play a sound we use <code class="highlighter-rouge">this.sound.play(key)</code>.</p>
+      
 
-<p>I have prepared some sounds for you to use:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Sound</th>
-      <th>url</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>jump</strong></td>
-      <td>https://hubben-amal.github.io/game-io-workshops/sound/bouncy-ball/jump.wav</td>
-    </tr>
-    <tr>
-      <td><strong>score</strong></td>
-      <td>https://hubben-amal.github.io/game-io-workshops/sound/bouncy-ball/score.wav</td>
-    </tr>
-    <tr>
-      <td><strong>death</strong></td>
-      <td>https://hubben-amal.github.io/game-io-workshops/sound/bouncy-ball/death.wav</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="moving-clouds-in-the-background">Moving clouds in the background</h2>
-<p>I prepared one other sprite for this exercise:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th> </th>
-      <th>name</th>
-      <th>url</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><img src="/game-io-workshops/img/bouncy-ball/cloud.png" alt="cloud" /></td>
-      <td><strong>cloud</strong></td>
-      <td>https://hubben-amal.github.io/game-io-workshops/img/bouncy-ball/cloud.png</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>We can use this cloud to make the background a little bit more interesting.
-Try adding some clouds in the background using the random functions.
-Then let them move using <code class="highlighter-rouge">setPosition</code> or <code class="highlighter-rouge">setVelocity</code>.
-<strong>Note that for velocity to work the clouds will need to be physics objects.</strong>
-Think about what happens to clouds who go off screen and the spawning of new clouds.
-Use a lower speed than the ground to create a <a href="https://en.wikipedia.org/wiki/Parallax">parallax</a> effect.</p>
-
-<h2 id="ramping-difficulty">Ramping difficulty</h2>
-<p>Now that we separated the pillar spawning and have grouped them together we are all set to allow for more pillars to exist at the same time.
-Think about how to spawn more and more pillars closer together over time.</p>
-
-<h2 id="rolling-ball">Rolling ball</h2>
-<p>An image can be rotated via its methods <code class="highlighter-rouge">setAngle(degrees)</code> or <code class="highlighter-rouge">setRotation(radians)</code>.
-We can use this to make our ball roll over the ground.
-If you remember your circle mathematics you should be able to derive the rotation speed from the speed of the ground.</p>
-
-<h2 id="more-controls">More controls</h2>
-<p>There is a better way to handle the input of a key if you want to perform a single action when it is pressed:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">keyboard</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'keydown_&lt;key&gt;'</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
-<span class="k">this</span><span class="p">.</span><span class="nx">input</span><span class="p">.</span><span class="nx">keyboard</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'keyup_&lt;key&gt;'</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
-</code></pre></div></div>
-
-<p>Where you replace <code class="highlighter-rouge">&lt;key&gt;</code> with the key you want to handle, some examples:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>key</th>
-      <th><code class="highlighter-rouge">&lt;key&gt;</code></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>spacebar</td>
-      <td><code class="highlighter-rouge">SPACE</code></td>
-    </tr>
-    <tr>
-      <td>arrow keys</td>
-      <td><code class="highlighter-rouge">LEFT</code>, <code class="highlighter-rouge">RIGHT</code>, <code class="highlighter-rouge">UP</code> or <code class="highlighter-rouge">DOWN</code></td>
-    </tr>
-    <tr>
-      <td>Other keys</td>
-      <td><code class="highlighter-rouge">A</code> - <code class="highlighter-rouge">Z</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<p>and <code class="highlighter-rouge">callback</code> is the name of the function you want to call once the key is down or up.</p>
-
-<p><a class="btn btn-danger center" type="button" href="../../bouncy-ball-2">
-See an example of what is possible!
-</a></p>
-
-        <ul class="pager blog-pager">
-        
-        <li class="previous">
-            <a href="/game-io-workshops/workshops/w2/exercise/step_3" data-toggle="tooltip" data-placement="top" title="Previous step">&larr; Previous Step</a>
-        </li>
-        
-        
-        </ul>
+	    
     </div>
   </div>
 </div>
-
-
 
 
         <footer>

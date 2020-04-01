@@ -32,8 +32,8 @@
 
 
     <meta content="website" property="og:type" /> 
-    <meta property="og:url" content="hubben-amal.github.io/game-io-workshops/workshops/w1/presentation/" />
-    <link rel="canonical" href="hubben-amal.github.io/game-io-workshops/workshops/w1/presentation/" />  
+    <meta property="og:url" content="hubben-amal.github.io/game-io-workshops/workshops/w3/presentation/" />
+    <link rel="canonical" href="hubben-amal.github.io/game-io-workshops/workshops/w3/presentation/" />  
     <meta property="og:image" content="hubben-amal.github.io/game-io-workshops/img/game-io-logo.png" /> 
 
 
@@ -132,35 +132,9 @@
         
           <section>
           
-            <h3 id="game-io">Game I/O</h3>
-<p><img src="/game-io-workshops/img/game-io-logo.png" width="200px" /></p>
-<h4 id="game-development-workshops">Game development workshops</h4>
-
-          
-          </section>
-        
-          <section>
-          
-            <h4 id="what">What?</h4>
-<ul>
-  <li>Game development workshops</li>
-  <li>Focusing on different aspects of game development</li>
-  <li>Fully web-based</li>
-</ul>
-
-          
-          </section>
-        
-          <section>
-          
-            <h4 id="who">Who?</h4>
-<p><img src="/game-io-workshops/img/theo.png" width="200px" /></p>
-<ul>
-  <li>Theo Dedeken</li>
-  <li>Master Computer Science</li>
-  <li>Making games for 6 years</li>
-  <li>Volunteer in the European Solidarity Corps</li>
-</ul>
+            <h2 id="game-i0---w3">Game I/0 - W3</h2>
+<h3 id="pixel-art">Pixel Art</h3>
+<p>Presentation adapted from this <a href="http://pixeljoint.com/forum/forum_posts.asp?TID=11299">forum post</a>, visit the link to get more detailed information</p>
 
           
           </section>
@@ -169,44 +143,62 @@
           
             
               <section>
-                <h4 id="when">When?</h4>
-<table class="table">
-    <tr>
-        <th>Date</th>
-        <th>Subject</th>
-    </tr>
-    <tr>
-        <td>20 February</td>
-        <td>Basics</td>
-    </tr>
-    <tr>
-        <td>12 March</td>
-        <td>Phaser Systems</td>
-    </tr>
-    <tr>
-        <td>2 April</td>
-        <td>Pixel Art</td>
-    </tr>
-    <tr>
-        <td>16 April</td>
-        <td>Sound Effects and Music</td>
-    </tr>
-    <tr>
-        <td>18-20 April</td>
-        <td>Ludum Dare Game Jam</td>
-    </tr>
-</table>
+                <h3 id="what-is-pixel-art">What is Pixel Art?</h3>
 
               </section>
             
               <section>
-                <p><img height="150px" src="https://res.cloudinary.com/practicaldev/image/fetch/s--Mr-QsJkf--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/5viow2pa4e8fjn83ain4.png" /></p>
+                <p><q>If the pixel art loses the sense of the importance of the pixels which construct it, then I don’t think it can be called pixel art. It is when the pixels hold importance to the nature of the work which defines it as pixelart.</q> - <strong>Alex HW</strong></p>
+
+              </section>
+            
+              <section>
+                <h4 id="not-all-digital-art-is-pixel-art">Not all digital art is pixel art</h4>
 <ul>
-  <li>Global Game Jam</li>
-  <li>Make a game in 48 hours</li>
-  <li>Over 2000 participants</li>
-  <li>18/04 - 03:00 -&gt; 20/04 - 03:00</li>
-  <li>Location, Internet, Electricity, Drinks, Snacks</li>
+  <li>Artist has to be in control of the image at the level of the single pixel</li>
+  <li>Every pixel should be purposefully placed</li>
+  <li>Automatic tools to blur, blend, smear the pixels are generally not used</li>
+</ul>
+
+              </section>
+            
+              <section>
+                <h4 id="changing-a-few-pixels-can-have-a-dramatic-effect-on-the-image">Changing a few pixels can have a dramatic effect on the image</h4>
+<p><img src="/game-io-workshops/img/w3/pixel_parrot.png" alt="pixel parrot" /></p>
+
+              </section>
+            
+          
+          </section>
+        
+          <section>
+          
+            
+              <section>
+                <h3 id="terms-to-know">Terms to know</h3>
+
+              </section>
+            
+              <section>
+                <h4 id="anti-aliasing">Anti-aliasing</h4>
+<p>Making jagged edges look smooth
+<img src="/game-io-workshops/img/w3/anti-aliasing.png" alt="anti-aliasing" /></p>
+
+              </section>
+            
+              <section>
+                <h4 id="dithering">Dithering</h4>
+<p>Transitioning between two colors without adding new colors to the palette
+<img src="/game-io-workshops/img/w3/dithering.gif" alt="dithering" /></p>
+
+              </section>
+            
+              <section>
+                <h4 id="tiling">Tiling</h4>
+<ul>
+  <li>Useful for creating large areas of texture</li>
+  <li>Single image gets repeated</li>
+  <li>Make sure edges line up with eachother (There are tools for this)</li>
 </ul>
 
               </section>
@@ -218,144 +210,90 @@
           
             
               <section>
-                <h4 id="how">How?</h4>
-<p><img src="/game-io-workshops/img/js.png" width="150px" />
-+
-<img src="/game-io-workshops/img/phaser.png" width="150px" /></p>
+                <h3 id="things-to-avoid">Things to avoid</h3>
 
               </section>
             
               <section>
-                <h5 id="javascript">Javascript</h5>
+                <h4 id="bad-anti-aliasing">Bad Anti-aliasing</h4>
+<p><img src="/game-io-workshops/img/w3/toomuchaa.png" alt="much aa" /></p>
+
+<p><strong>Too Much AA</strong></p>
+
+              </section>
+            
+              <section>
+                <p><img src="/game-io-workshops/img/w3/toolittleaa.png" alt="little aa" /></p>
+
+<p><strong>Too little AA</strong></p>
+
+              </section>
+            
+              <section>
+                <p><img src="/game-io-workshops/img/w3/just_right.jpg" alt="just right" /></p>
+
+              </section>
+            
+              <section>
+                <h4 id="jaggies">Jaggies</h4>
 <ul>
-  <li>The (one and only) programming language for the web</li>
-  <li>Easy to run, just need a browser</li>
-  <li>Easy to learn</li>
+  <li>Jagged lines when pixels look out of place</li>
+  <li>Solution can be to use anti-aliasing</li>
 </ul>
 
               </section>
             
               <section>
-                <h5 id="phaser">Phaser</h5>
+                <p><img src="/game-io-workshops/img/w3/jaggies.png" alt="jaggies" /></p>
+
+              </section>
+            
+              <section>
+                <h4 id="bad-dithering">Bad dithering</h4>
 <ul>
-  <li>Game engine for the web</li>
-  <li>Lightweight, mostly 2D support</li>
-  <li>Graphics, Physics, Sounds, Input</li>
-</ul>
-
-              </section>
-            
-          
-          </section>
-        
-          <section>
-          
-            <h3 id="javascript-overview">Javascript overview</h3>
-
-          
-          </section>
-        
-          <section>
-          
-            
-              <section>
-                <h4 id="comments">Comments</h4>
-<p><q>Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.</q></p>
-
-              </section>
-            
-              <section>
-                <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Single line comment</span>
-
-<span class="cm">/*
-Multiline
-comment
-*/</span>
-</code></pre></div></div>
-
-              </section>
-            
-              <section>
-                <p><img src="/game-io-workshops/img/w1_comments.jpg" /></p>
-
-              </section>
-            
-          
-          </section>
-        
-          <section>
-          
-            
-              <section>
-                <h4 id="variables">Variables</h4>
-<p><img width="500px" src="/game-io-workshops/img/variable_box.png" /></p>
-
-              </section>
-            
-              <section>
-                <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Declaring a variable</span>
-<span class="kd">let</span> <span class="nx">cardboardBox</span><span class="p">;</span>
-<span class="c1">// Assigning a value to a variable</span>
-<span class="nx">cardboardBox</span> <span class="o">=</span> <span class="s1">'cat'</span><span class="p">;</span>
-<span class="c1">// Declaring and assigning</span>
-<span class="kd">let</span> <span class="nx">answerToUniverseAndEverything</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
-<span class="c1">// Using a variable</span>
-<span class="nx">cardboardBox</span><span class="p">;</span>
-</code></pre></div></div>
-
-              </section>
-            
-              <section>
-                <h5 id="naming-variables">Naming variables</h5>
-<ul>
-  <li>Can be (almost) anything</li>
-  <li>But be clear and consistent</li>
-  <li>camelCase</li>
+  <li>Too much dithering can create unwanted texture</li>
 </ul>
 
               </section>
             
               <section>
-                <h5 id="data-types">Data types</h5>
-<table style="font-size: 18pt">
-    <tr>
-        <th>Data type</th>
-        <th>Explanation</th>
-        <th>Example</th>
-    </tr>
-    <tr>
-        <td>String</td>
-        <td>Text in quotation marks</td>
-        <td><code>let workshopLeader = 'Theo'</code></td>
-    </tr>
-    <tr>
-        <td>Number</td>
-        <td>Any number</td>
-        <td><code>let one = 1;</code><br /><code>let pi = 3.14;</code></td>
-    </tr>
-    <tr>
-        <td>Boolean</td>
-        <td>True or False, <br />Yes or No, 1 or 0</td>
-        <td><code>let awesome = true;</code></td>
-    </tr>
-    <tr>
-        <td>Array</td>
-        <td>A collection of data</td>
-        <td><code>let dataTypes = ['string', 1, false];</code></td>
-    </tr>
-    <tr>
-        <td>Object</td>
-        <td>Everything else</td>
-        <td><code>let game = new  Phaser.Game();</code></td>
-    </tr>
-</table>
+                <p><img src="/game-io-workshops/img/w3/dithering.png" alt="dithering" /></p>
 
               </section>
             
               <section>
-                <h5 id="exercise">Exercise</h5>
-<script async="" src="//jsfiddle.net/theodedeken/cbd3t8Le/10/embed/js/"></script>
+                <h4 id="banding">Banding</h4>
+<ul>
+  <li>Pixels that line up create ‘bands’</li>
+  <li>They reveal the pixel grid and lower the apparent resolution</li>
+</ul>
 
+              </section>
+            
+              <section>
+                <p><img src="/game-io-workshops/img/w3/banding_1.png" alt="banding_1" />
+<img src="/game-io-workshops/img/w3/banding_2.png" alt="banding_2" /></p>
+
+              </section>
+            
+              <section>
+                <p><img src="/game-io-workshops/img/w3/banding_3.png" alt="banding_3" />
+<img src="/game-io-workshops/img/w3/banding_4.png" alt="banding_4" /></p>
+
+              </section>
+            
+              <section>
+                <h4 id="pillow-shading">Pillow-shading</h4>
+<ul>
+  <li>Shading by surrounding a central area with increasingly darker bands</li>
+  <li>Pays no attention to the light source</li>
+  <li>Fix by taking into account the direction of the light</li>
+</ul>
+
+              </section>
+            
+              <section>
+                <p><img src="/game-io-workshops/img/w3/pillow_shading.png" alt="pillow shading" /></p>
 
               </section>
             
@@ -366,54 +304,79 @@ comment
           
             
               <section>
-                <h4 id="operators">Operators</h4>
-<p><img src="https://media.giphy.com/media/DHqth0hVQoIzS/giphy.gif" /></p>
+                <h3 id="creating-a-palette">Creating a palette</h3>
+<p><strong>Color palette</strong>: The collection of colors used in your image</p>
 
               </section>
             
               <section>
-                <table style="font-size: 16pt">
-    <tr>
-        <th>Operator group</th>
-        <th>Symbols</th>
-        <th>Explanation</th>
-        <th>Example</th>
-    </tr>
-    <tr>
-        <td>Arithmetic</td>
-        <td><code>+, -, *, /</code></td>
-        <td>Calculations</td>
-        <td><code>2 * 5 + 4;</code></td>
-    </tr>
-    <tr>
-        <td>Comparison</td>
-        <td><code>===, !==, &lt;, &gt;, &lt;=, &gt;= </code></td>
-        <td>Comparing numbers and objects</td>
-        <td><code>one &lt; 2;</code></td>
-    </tr>
-    <tr>
-        <td>Logical</td>
-        <td><code>!, &amp;&amp;, ||</code></td>
-        <td>not, and, or</td>
-        <td><code>!true;</code></td>
-    </tr>
-    <tr>
-        <td>Assignment</td>
-        <td><code>=</code></td>
-        <td>Assigning to a variable</td>
-        <td><code>let answer = 5;</code></td>
-    </tr>
-</table>
+                <h4 id="color-count">Color count</h4>
+<ul>
+  <li>Better to have a lower color count</li>
+</ul>
 
               </section>
             
               <section>
-                <h5 id="true-or-false">True or False?</h5>
-<p><code class="fragment">!false</code>  <span class="fragment">← True</span><p>
-<p><code class="fragment">4 &lt; 3</code>  <span class="fragment">← False</span><p>
-<p><code class="fragment">0 &lt;= 0</code>  <span class="fragment">← True</span><p>
-<p><code class="fragment">1 &gt; 2 - 3 || false &amp;&amp; 2 !== 'two'</code>  <span class="fragment">← True</span><p>
-</p></p></p></p></p></p></p></p>
+                <p><strong>Cohesion</strong>:</p>
+<blockquote>
+  <p>When you’re using less colors, the same colors will reappear throughout the piece more frequently, thus tying the piece together, unifying the work.</p>
+</blockquote>
+
+              </section>
+            
+              <section>
+                <p><strong>Control</strong>:</p>
+<blockquote>
+  <p>The smaller the palette, the easier it is to manage. You may, and probably will, want to adjust a color later on. Which will change its relationship between itself and its neighbors. With a smaller palette, the effect of changing a single color is more substantial, and there are less relationships to worry about.</p>
+</blockquote>
+
+              </section>
+            
+              <section>
+                <h4 id="hue-saturation">Hue, Saturation</h4>
+<ul>
+  <li>Hue: identity of a color (red, green, blue…)</li>
+  <li>Saturation: intensity of a color</li>
+</ul>
+
+<p><img src="/game-io-workshops/img/w3/hue_sat.png" alt="hue_sat" /></p>
+
+              </section>
+            
+              <section>
+                <p><img src="/game-io-workshops/img/w3/saturation_bad.gif" alt="saturation" /></p>
+
+<p><strong>Too much saturation burns the eyes</strong></p>
+
+              </section>
+            
+              <section>
+                <h4 id="luminosity">Luminosity</h4>
+<ul>
+  <li>How dark or light a color is</li>
+  <li>Creates contrast between colors</li>
+</ul>
+
+              </section>
+            
+              <section>
+                <h4 id="hue-shifting">Hue-shifting</h4>
+<ul>
+  <li>Having a transition of hues in a color ramp</li>
+  <li>Adds more variety in your picture</li>
+</ul>
+
+              </section>
+            
+              <section>
+                <p><img src="/game-io-workshops/img/w3/straight_ramp.png" alt="straight ramp" /></p>
+
+<p><strong>Straight ramp</strong>: Only luminosity changes</p>
+
+<p><img src="/game-io-workshops/img/w3/hue_ramp.png" alt="hue ramp" /></p>
+
+<p><strong>Hue shifted ramp</strong>: Luminosity and hue changes</p>
 
               </section>
             
@@ -422,117 +385,9 @@ comment
         
           <section>
           
-            
-              <section>
-                <h4 id="conditionals">Conditionals</h4>
-
-              </section>
-            
-              <section>
-                <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-<span class="k">if</span><span class="p">(</span><span class="nx">result</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// If the expression is true go in this codeblock</span>
-    <span class="nx">alert</span><span class="p">(</span><span class="s1">'The result is negative'</span><span class="p">);</span>
-<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">result</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// If statements can be chained</span>
-    <span class="nx">alert</span><span class="p">(</span><span class="s1">'The result is positive'</span><span class="p">);</span>    
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="c1">// If previous expressions are false, go to this codeblock</span>
-    <span class="nx">alert</span><span class="p">(</span><span class="s1">'The result is zero'</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-              </section>
-            
-              <section>
-                <p><img src="/game-io-workshops/img/w1_cond_meme.png" /></p>
-
-              </section>
-            
-          
-          </section>
-        
-          <section>
-          
-            
-              <section>
-                <h4 id="loops">Loops</h4>
-<p><img src="https://imgs.xkcd.com/comics/delicious.png" /></p>
-
-              </section>
-            
-              <section>
-                <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// A loop expression contains three parts</span>
-<span class="c1">// initialization; end condition; step action</span>
-<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-              </section>
-            
-              <section>
-                <h5 id="can-you-predict-the-output-of-these-loops">Can you predict the output of these loops?</h5>
-
-              </section>
-            
-              <section>
-                <script async="" src="//jsfiddle.net/theodedeken/do2m5xuh/3/embed/js,result/"></script>
-
-
-              </section>
-            
-              <section>
-                <script async="" src="//jsfiddle.net/theodedeken/1weazfLt/2/embed/js,result/"></script>
-
-
-              </section>
-            
-              <section>
-                <script async="" src="//jsfiddle.net/theodedeken/7jy1h6ce/embed/js,result/"></script>
-
-
-              </section>
-            
-          
-          </section>
-        
-          <section>
-          
-            
-              <section>
-                <h4 id="functions">Functions</h4>
-
-              </section>
-            
-              <section>
-                <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Function declaration</span>
-<span class="kd">function</span> <span class="nx">multiply</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">num1</span> <span class="o">*</span> <span class="nx">num2</span><span class="p">;</span>
-    <span class="c1">// This function returns a result</span>
-    <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="c1">// Calling a function</span>
-<span class="nx">multiply</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
-</code></pre></div></div>
-
-              </section>
-            
-          
-          </section>
-        
-          <section>
-          
-            <p><img src="https://www.explainxkcd.com/wiki/images/c/c6/code_quality.png" /></p>
-
-          
-          </section>
-        
-          <section>
-          
-            <h3 id="phaser-introduction">Phaser Introduction</h3>
-<iframe src="/game-io-workshops/workshops/w1/bouncy-ball" height="450" width="800"></iframe>
+            <h3 id="exercise">Exercise</h3>
+<p>Use <a href="https://www.piskelapp.com/">Piskel</a> to create your own pixel art
+<img src="https://domoticx.com/wp-content/uploads/2015/04/piskel-screen.jpg" alt="piskel" /></p>
 
           
           </section>
