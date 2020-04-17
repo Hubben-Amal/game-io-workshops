@@ -36,13 +36,7 @@ Introduction of the different systems of the Phaser Game Engine
 **Coming Soon!**
 ## W4 - Animation
 **Coming Soon!**
-## W5 - UI
+## W5 - Sound And Music
 **Coming Soon!**
-## W6 - Sound And Music
-**Coming Soon!**
-## W7 - Game Design
-**Coming Soon!**
-## W8 - Publishing and Marketing
-**Coming Soon!**
-## Ludum Dare Game Jam
+## W6 - Publishing and Marketing
 **Coming Soon!**
