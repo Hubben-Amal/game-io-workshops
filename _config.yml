@@ -29,6 +29,7 @@ navbar-links:
     - Phaser documentation: "additional/documentation"
     - Extra tutorials: "additional/tutorials"
     - Phaser quickstart: "additional/quickstart"
+    - Setting up and IDE: "additional/ide"
     - Programming games: "additional/games"
   Author's home: "https://www.theodedeken.xyz"
 
