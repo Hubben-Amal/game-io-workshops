@@ -13,7 +13,7 @@ Visual Studio Code can be installed via this [link](https://code.visualstudio.co
 ## Installing extension
 Install the Live Server extension for VS Code.
 
-![liveserver](/game-io-workshops/img/theo.png)
+![liveserver](/game-io-workshops/img/liveserver.png)
 
 After installation you will see a button in the bottom right that says **Go Live**.
 Clicking it will start a local server which will host your project on http://localhost:5500/.
