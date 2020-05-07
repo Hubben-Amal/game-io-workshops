@@ -29,11 +29,14 @@ Introduction of the workshops, programming language, game development framework 
 
 [See the workshop resources here!](workshops/w1/index.md)
 ## W2 - Phaser Systems
-Introduction of the different systems of the Phaser Game Engine
+Introduction of the different systems of the Phaser Game Engine.
 
 [See the workshop resources here!](workshops/w2/index.md)
 ## W3 - Pixel Art
-**Coming Soon!**
+Learn the basics of makine Pixel Art.
+
+[See the workshop resources here!](workshops/w3/index.md)
+
 ## W4 - Animation
 **Coming Soon!**
 ## W5 - Sound And Music
