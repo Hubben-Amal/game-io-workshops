@@ -12,7 +12,7 @@ jobs:
         run: |
           docker run \
           -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-          jekyll/builder:latest /bin/bash -c "chmod 777 /srv/jekyll && chmod 777 -R /usr/gem && \
+          jekyll/builder:latest /bin/bash -c "chmod 777 /srv/jekyll && chown jekyll:jekyll -R /usr/gem && \
           bundle install && bundle exec jekyll build --future"
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
