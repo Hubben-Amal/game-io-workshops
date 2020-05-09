@@ -7,3 +7,5 @@ gem 'jekyll-paginate'
 gem "jekyll", "3.8.5"
 
 gem 'jekyll-sitemap'
+
+gem 'addressable', "2.5.2"
