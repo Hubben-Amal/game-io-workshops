@@ -13,8 +13,8 @@ jobs:
           docker run \
           -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
           jekyll/builder:latest /bin/bash -c "chown -R jekyll:jekyll /usr/gem && chmod 777 /srv/jekyll && \
-          echo 'Installing Gems...\n' || bundle install || true && \
-          echo 'Building website...\n' || jekyll build --future || true"
+          echo 'Installing Gems...' && bundle install || true && \
+          echo 'Building website...' && jekyll build --future || true"
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
