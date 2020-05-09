@@ -1,7 +1,7 @@
 # Game I/O workshops
 Game development workshops using the Javascript Phaser game engine.
 
-Pages website forked from Beautiful Jekyll
+Pages website forked from Beautiful Jekyll.
 
 ----
 
