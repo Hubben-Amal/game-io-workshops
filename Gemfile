@@ -8,7 +8,7 @@ gem "jekyll", "3.8.5"
 
 gem 'jekyll-sitemap'
 
-gem 'addressable', "2.5.2"
+gem 'addressable', "2.8.0"
 
 gem 'concurrent-ruby', "1.1.4"
 
